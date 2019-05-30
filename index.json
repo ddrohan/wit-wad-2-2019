@@ -35,10 +35,10 @@
     "properties" : {},
   
   "type" : "talk",
-  "title" : "Assignment-1  ",
+  "title" : "Assignment-1 ",
   "img" : "assignment-1.png",
   "videoid" : "none",
-  "objectives" : "<p>A detailed specification of the Web Application Development first assignment. This comprises a Node Web Server including RESTful API.</p>",
+  "objectives" : "<p>A detailed specification of the Web Application Development first assignment. This comprises of a Node Web Server including a RESTful API, possibly deployed to the cloud.</p>",
   "folder" : "talk-1-assignment-1",
   "link" : "assignment-1.pdf",
   "los": [
@@ -51,10 +51,10 @@
     "properties" : {},
   
   "type" : "talk",
-  "title" : "Assignment-2  ",
+  "title" : "Assignment-2 ",
   "img" : "assignment-2.png",
   "videoid" : "none",
-  "objectives" : "<p>A detailed specification of the Web Application Development second assignment.</p>",
+  "objectives" : "<p>A detailed specification of the Web Application Development second assignment. This comprises of a Vue Frontend connecting to the Node Web Server from Assignment 1.</p>",
   "folder" : "talk-2-assignment-2",
   "link" : "assignment-2.pdf",
   "los": [
