@@ -1,0 +1,47 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-01",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>In this lab we&#39;re going to build a very simple Node Web App using the <strong>WebStorm</strong> IDE. If you haven&#39;t done so already, get it set up by following the WebStorm IDE Setup. This web app won&#39;t have much functionality but it will take you through the process of building a Node Web app using WebStorm.</p>",
+  "folder" : "book-web-lab01",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Lab 1 - DonationWeb 1.0 (Express & Node Web App using WebStorm)",
+    "shortTitle": "Lab-01",
+    "contentMd" : "#Lab 1 - DonationWeb 1.0 (Express & Node Web App using WebStorm)\n\nIn this lab we're going to build a very simple Node Web App using the **WebStorm** IDE. If you haven't done so already, get it set up by following the WebStorm IDE Setup. This web app won't have much functionality but it will take you through the process of building a Node Web app using WebStorm.\n\nOnce completed and running, your Node Server Landing Page will be at http://localhost:3000\n"
+    },
+  
+    {
+    "title": "# Objectives",
+    "shortTitle": "01",
+    "contentMd" : "# Objectives\n\nIn this Lab, you will be required to build a simple Node/Express Web App (using WebStorm), called **DonationWeb-1.0**.  We will use the WebStorm IDE to do most of the initial setup for us.\n\nOn completion of this lab you'll be able to\n\n* create a skeleton **NodeJS** app using **Express**\n* run this app as a **NodeJS Server**\n* 'customise' the Node Server Landing (Home) Page\n"
+    },
+  
+    {
+    "title": "# Step 2 - Project Setup",
+    "shortTitle": "02",
+    "contentMd" : "# Step 2 - Project Setup\n\n![](img/lab01s01.png)\n\nWe're going to build our first Node/Express web app using **WebStorm**, so (assuming you already have it installed) launch your WebStorm IDE and create a new Node/Express Project as follows;\n\n![](img/lab01s02.png)\n\nSo select 'Create New Project' and you should get something like this\n\n![](img/lab01s02a.png)\n\nSelect a 'Node.js Express App'\n\n![](img/lab01s02b.png)\n\nand browse to the location you want to store your project files. It's probably a good idea to store all your web apps in a single folder (**donationweb** for me here) and create a new folder for our specific web app **donationweb-1.0** (as below).\n\nMake sue you choose **EJS** as the templating option (more on this later)\n\nAs you can see below, this will auto-generate a Node web app, creating all the necessary folders and files we need to get started. *EJS* specifies we want to use the **Embedded JavaScript Templates** (instead of the default which is Jade).\n\n![](img/lab01s06.png)\n\n![](img/lab01s06a.png)\n\n(And you can ignore the image files for the moment)\n\nNow, click on the 'play' button to run/launch your Web App..\n\n![](img/lab01s07.png)\n\nand you'll get this in your *Run* window\n\n![](img/lab01s08.png)\n\nIf everything goes to plan you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser, and see the following\n\n![](img/lab01s12.png)\n\nNow, if you'd rather your browser launch automatically you can configure you 'Run' options like so:\n\n**Run->Edit Configurations...**\n\n![](img/lab01s09.png)\n\nand choose the Browser you prefer\n\n![](img/lab01s10.png)\n\nJust be sure to 'tick' the 'After Launch' check box\n\n![](img/lab01s11.png)\n\nClose the browser tab/window and run your app again, to confirm your new run configuration is correct.\n\nThe next step will involve customising our home page (although customising is a bit of a stretch!)\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "03",
+    "contentMd" : "\n# Step 3 - Customising our Home Page\n\nBefore we make a start launch your app again and confirm that it automatically launches your preferred browser as well\n\n![](img/lab01s12.png)\n\nNow, navigate to you 'routes' folder\n\n![](img/lab01s13.png)\n\nOpen up the **index.js** file, and replace the default ***title*** value with this one\n\n~~~javascript\n'DonationWeb App Lab 1'\n~~~\n\n![](img/lab01s13a.png)\n\nLaunch your app again and your project should now look something like this\n\n![](img/lab01s15.png)\n\nNow we'll add a small bit of styling, so open up your **style.css** and add the following\n\n~~~js\np  {\n  color: red;\n  font-family: courier;\n  font-size: 180%;\n}\n~~~\n\n![](img/lab01s16.png)\n\nRun you app once again and...\n\n![](img/lab01s17.png)\n\nFor a bit of 'light entertainment' :) head over to https://giphy.com/explore/homer-simpson, pick an animated gif you like and try and customise your Home Page like so\n\n![](img/lab01s18.png)\n\n\n**Well Done!! - You've just created, customised and deployed your first Node Web App**.\n"
+    }
+  
+  ]
+  }
+

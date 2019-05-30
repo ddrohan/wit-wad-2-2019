@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Introduction & Background  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Setup">
+          Setup
+        </a>
+      
+        <a class="item" data-tab="Webstorm">
+          Webstorm
+        </a>
+      
+        <a class="item" data-tab="Node">
+          Node
+        </a>
+      
+        <a class="item" data-tab="Express">
+          Express
+        </a>
+      
+        <a class="item" data-tab="MongoDB">
+          MongoDB
+        </a>
+      
+        <a class="item" data-tab="Vue">
+          Vue
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Setup">
+            <h2><em>MEVN</em> stack is a full-stack JavaScript solution that helps you build fast, robust and maintainable production level web applications.</h2>
+<h3>This is where you can find all the info you need to setup your MEVN build environment.</h3>
+<p><img src="img/mevn.light.png" alt=""></p>
+<p>Before you attempt any of the labs, Make sure you have the <strong>WebStorm</strong> IDE installed and configured. If you want to go &#39;old school&#39; I&#39;d recommend downloading and installing <strong>sublime text</strong> or <strong>Atom</strong> to use as your JS editor - you can use any text editor you like really, but I&#39;ll be using <strong>WebStorm</strong> for all the labs.</p>
+<p>You can visit the live site at <a href="https://donationweb-vue.firebaseapp.com">donationweb-vue.firebaseapp.com</a>, to get an idea of what you COULD be developing, and here for what you&#39;ll ACTUALLY be developing in the labs <a href="https://donationweb-ssd.firebaseapp.com">donationweb-ssd.firebaseapp.com</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Webstorm">
+            <p><img src="img/webstormlogo.png" alt=""></p>
+<p>The first thing to do is go to the official JetBrains resources and get yourself an educational licensed version of their WebStorm IDE.</p>
+<p>You can find the download link <a href="https://www.jetbrains.com/webstorm/">here</a> and the Student License application form <a href="https://www.jetbrains.com/student/">here</a>.</p>
+<p><strong>Don&#39;t forget to activate your subscription with your JetBrains account (and not an activation code or license server)</strong></p>
+<p><img src="img/wsactivation.png" alt=""></p>
+<p>We&#39;ll look at the IDE (and its features) in detail as we work through the labs.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Node">
+            <p><img src="img/nodejs2.png" alt=""></p>
+<p>Instaling <a href="https://nodejs.org">NodeJS</a> is pretty much essential for any modern web development, so if you haven&#39;t got it installed already, you can install it (and the Node Package Manager npm) <a href="https://nodejs.org">here</a>.</p>
+<p>There&#39;s also some useful info here - <a href="https://docs.npmjs.com/getting-started/installing-node">Installing Node.js and updating npm</a>.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Express">
+            <p><img src="img/node.express.png" alt=""></p>
+<p>Before you install <a href="http://www.expressjs.com">express</a>, make sure you have <a href="https://docs.npmjs.com/getting-started/installing-node">node and npm</a> installed already.</p>
+<p>Go to the command line and type the following</p>
+<pre><code class="lang-JS">npm install -g express</code></pre>
+<p>That&#39;s it - you now have express installed! (globally (-g) )</p>
+<p>It&#39;s probably worth installing the generator package as well</p>
+<pre><code class="lang-JS">npm install -g express-generator</code></pre>
+<p>if you type</p>
+<pre><code class="lang-JS">npm install -g express --save</code></pre>
+<p>within your project folder, it will add express to your dependencies (but we&#39;ll cover that later on).</p>
+<p><strong>You can also use WebStorm to search for and add these dependencies to your project</strong> (like we did in the JS labs).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="MongoDB">
+            <p><img src="img/mongodbmlab.png" alt=""></p>
+<p>To install mongodb go to the official site and follow the instructions for your particular environment <a href="http://www.mongodb.com">here</a>.</p>
+<p>We won&#39;t be using a mongodb database until later on in the module, but it&#39;s worth having it installed and setup before we actually need it.</p>
+<p>You might also want to set up an <a href="http://www.mlab.com">mlabs account</a> if you plan on deploying your project - here&#39;s the general set of screens you&#39;ll go through during the setup.</p>
+<p><img src="img/mlab01.png" alt="">
+<img src="img/mlab02.png" alt="">
+<img src="img/mlab03.png" alt="">
+<img src="img/mlab04.png" alt="">
+<img src="img/mlab05.png" alt="">
+<img src="img/mlab06.png" alt="">
+<img src="img/mlab07.png" alt="">
+<img src="img/mlab08.png" alt="">
+<img src="img/mlab09.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Vue">
+            <p><img src="img/vue.png" alt=""></p>
+<p>Visit the official Vue JS resources and set up your development environment as instructed.</p>
+<p>You can find nearly everything you need <a href="https://vuejs.org">here</a>.</p>
+<p>I&#39;d also recommend installing <a href="https://www.sourcetreeapp.com">SourceTree</a> and setting up either a <a href="http://www.bitbucket.org">bitbucket</a> (my personal favourite!) or <a href="http://www.github.com">GitHub</a> account (if you haven&#39;t got one already) to manage versioning control of all your labs.</p>
+<p>Once you have SourceTree installed, you can easily set up a local git repository and sync it up remotely with you bitbucket account as described <a href="https://confluence.atlassian.com/display/BITBUCKET/Create+a+repository">here</a>. It&#39;s probably best to set it up from the command line first and then just &#39;drag-n-drop&#39; your folder onto the SourceTree app - and you&#39;re done!</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

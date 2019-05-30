@@ -1,0 +1,693 @@
+
+
+
+  {
+  
+  
+    "properties" : {"highlightstyle":"railscasts","slack":null,"moodle":null,"youtube":"https://www.youtube.com/channel/UCU_5o6ywJxcv0CMOUX65F7g","parent":"http://ddrohan.github.io/","courseurl":"http://ddrohan.github.io/wit-wad-2-2019/","credits":"David Drohan BSc., MSc, WIT","courseicon":"grey newspaper"},
+  
+  "type" : "course",
+  "title" : "Web App Development 2 ",
+  "img" : "",
+  "videoid" : "",
+  "objectives" : "<p>Welcome to the Web App Development 2 Module. The objective of this course is to provide a comprehensive introduction to developing modern Web Applications. It is a 5 credit module, delivered over a single semester. The course will comprise of a series of lectures + labs exploring the MEVN ecosystem in increasing detail. Our objective is to provide the student with the skills required to construct efficient and reliable web applications of moderately complexity. We assume a beginner/intermediate level in JavaScript. Each week the Table of Contents on the left here will be populated with a new topic - which will contain slide + labs for the week.</p>",
+  "folder" : "wit-wad-2-2019",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "topics" : [  {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Assignments ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>Specification for the course assignments.</p>",
+  "folder" : "topic00",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Assignment-1  ",
+  "img" : "assignment-1.png",
+  "videoid" : "none",
+  "objectives" : "<p>A detailed specification of the Web Application Development first assignment. This comprises a Node Web Server including RESTful API.</p>",
+  "folder" : "talk-1-assignment-1",
+  "link" : "assignment-1.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Assignment-2  ",
+  "img" : "assignment-2.png",
+  "videoid" : "none",
+  "objectives" : "<p>A detailed specification of the Web Application Development second assignment.</p>",
+  "folder" : "talk-2-assignment-2",
+  "link" : "assignment-2.pdf",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Overview & Background ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>Here you&#39;ll find a brief talk about myself, my background and what this Module will cover in the different sections. We&#39;ll talk about the specifics of the module, the material and the assessment schedule and breakdown.</p>",
+  "folder" : "topic00-profile",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Module Overview ",
+  "img" : "intro.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here you will find a brief talk about myself, my background and what this Module will cover in the different sections. We&#39;ll talk about the specifics of the module, the material and the assessment schedule and breakdown.</p>",
+  "folder" : "talk-1-intro",
+  "link" : "intro.pdf",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Introduction to Web Apps ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>Web Apps have become commonplace and the technologies used to build them are too many to mention (but we&#39;ll mention a few!). Here we look at some of the principles underpinning web app development such as, the concept of Web Services, REST and general Web App motivations. There&#39;s also a brief review of JavaScript (just in case!).</p>",
+  "folder" : "topic01-intro",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Introduction & Background ",
+  "img" : "talk-2-javascript/javascript.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-1",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "JavaScript Overview ",
+  "img" : "javascript.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we take a quick look at JavaScript, the language, its constructs, variables, objects etc. It is recommended you cover this section if you are unfamiliar with javascript.</p>",
+  "folder" : "talk-2-javascript",
+  "link" : "javascript.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Introdcution to REST ",
+  "img" : "rest.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we take a quick look at web services and REST in general. This section acts as support material to the remainder of the slide in this module.</p>",
+  "folder" : "talk-3-rest",
+  "link" : "rest.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Web Apps Overview ",
+  "img" : "webapps.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we explore the general context of Web Apps, their history and the different technologies available to the developer to build them.</p>",
+  "folder" : "talk-4-web-apps",
+  "link" : "webapps.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Setup",
+  "img" : "img/main.gif",
+  "videoid" : "none",
+  "objectives" : "<h3>This is where you can find all the info you need to setup your MEVN build environment.</h3>",
+  "folder" : "book-dev-setup",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "JS.Lab-01",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>In these labs we&#39;re going to build a very simple Console Version of our Node Web App (while we learn about Web Apps) using <strong>WebStorm</strong>.</p>",
+  "folder" : "book-js-lab01",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "JS.Lab-02",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>In these labs we&#39;re going to build a very simple Console Version of our Node Web App (while we learn about Web Apps) using <strong>WebStorm</strong>.</p>",
+  "folder" : "book-js-lab02",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "Web App Development ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>Here we take a closer look at Web App Development technologies, specifically one of the more recent ones, the MEVN, (Mongo, Express, Vue and Node) software stack. We first investigate the Server Side and develop a Node Web Server and then build the Client Side using Vue 2.</p>",
+  "folder" : "topic02-wad",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Node JS ",
+  "img" : "talk-1-node-1/node.1.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-1",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Node - Part 1 ",
+  "img" : "node.1.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we discuss Node in general, the frameworks available to the app developer and the different approaches that can be followed in the design and development of a Node web app.</p>",
+  "folder" : "talk-1-node-1",
+  "link" : "node.1.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Node - Part 2 ",
+  "img" : "node.2.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we investigate some of the more advanced features used in the design of Node web apps and focus on a particular Framework - Express.</p>",
+  "folder" : "talk-2-node-2",
+  "link" : "node.2.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-01",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>In this lab we&#39;re going to build a very simple Node Web App using the <strong>WebStorm</strong> IDE. If you haven&#39;t done so already, get it set up by following the WebStorm IDE Setup. This web app won&#39;t have much functionality but it will take you through the process of building a Node Web app using WebStorm.</p>",
+  "folder" : "book-web-lab01",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-02",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>In this lab we will be using our WebStorm IDE to build a simple Node/Express Server to initially act as a Web Service APi which we will test manually, and eventually it will be our back-end to a full MEAN Stack Web App.</p>",
+  "folder" : "book-web-lab02",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Node, MongoDB & Mongoose  ",
+  "img" : "talk-3-node-3/node.3.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-2",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Node - Part 3 ",
+  "img" : "node.3.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we explore the use of NOSQL databases when used in Node web apps. We focus on MongoDB and Mongoose to build persistence into our Case Study web app.</p>",
+  "folder" : "talk-3-node-3",
+  "link" : "node.3.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-03",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>In this lab we will be introducing some proper persistence, through a <strong>MongoDB</strong> backend, initially running locally, and then eventually deploying to <a href='http://www.mlab.com'>www.mlab.com</a> so that we can have remote mongo support.</p>",
+  "folder" : "book-web-lab03",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Deploy-to-heroku",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>As a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your Node Server to Heroku.</p>",
+  "folder" : "book-web-wheroku",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Vue JS - Introduction, Overview & Core Features ",
+  "img" : "talk-1-vue-0-overview/vue.0.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-3",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Introduction ",
+  "img" : "vue.0.png",
+  "videoid" : "TKM3mxiUCeA",
+  "objectives" : "<p>Here we cover a brief overview of Vue, looking at the Core features of the framework and some interesting and useful info to aid the understanding of how developers can make the best use of those features in web app development.</p>",
+  "folder" : "talk-1-vue-0-overview",
+  "link" : "vue.0.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Rendering & Reactivity ",
+  "img" : "vue.1.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we look at how the framework handles synchronising data between the model and the view via 2-way reactive data binding, as well as how that data can be manipulated.</p>",
+  "folder" : "talk-2-vue-1-reactivity",
+  "link" : "vue.1.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Components ",
+  "img" : "vue.2.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we explore one of the core features of Vue, specifically how to reuse Components for better design and maintainability of our web apps.</p>",
+  "folder" : "talk-3-vue-2-components",
+  "link" : "vue.2.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-Vue-01",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>This lab involves building your 1st Vue Web App - <strong>DonationVue-1.0</strong>.</p>",
+  "folder" : "book-webvue-lab01",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Vue JS - Routing, Directives & Event Handling ",
+  "img" : "talk-4-vue-3-routing/vue.3.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-4",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Routing ",
+  "img" : "vue.3.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we discuss the different approaches available to the developer for implementing url routing in a Vue web app, from very basic in-line routing to advanced component based systems.</p>",
+  "folder" : "talk-4-vue-3-routing",
+  "link" : "vue.3.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Directives ",
+  "img" : "vue.4.png",
+  "videoid" : "none",
+  "objectives" : "<p>Directives are a fundamental part of any Vue web app. In this section we look at the different types of directives that the developer can use to enhance the functionality and usefulness of a Vue app.</p>",
+  "folder" : "talk-5-vue-4-directives",
+  "link" : "vue.4.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Event Handling ",
+  "img" : "vue.5.png",
+  "videoid" : "none",
+  "objectives" : "<p>Event Handling is pretty much a given for any useful web app. Here we discuss Vue Event Handling in general, and look at specific examples implemented in our Case Study.</p>",
+  "folder" : "talk-6-vue-5-events",
+  "link" : "vue.5.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-Vue-02",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>This lab involves adding some actual functionality to our Vue Web App - <strong>DonationVue-2.0</strong> with the ability to List and add Donations.</p>",
+  "folder" : "book-webvue-lab02",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-Vue-03",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>This lab involves adding more functionality to our Vue Web App - <strong>DonationVue-3.0</strong> with the ability to Update, Delete and Upvote Donations.</p>",
+  "folder" : "book-webvue-lab03",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Vue JS - Filters, Computed Values, Watchers & Transitions ",
+  "img" : "talk-7-vue-6-filters/vue.6.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-5",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Filters ",
+  "img" : "vue.6.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we discuss the use of Filters in Vue and how the developer can use Filters to change the way data is presented to the user.</p>",
+  "folder" : "talk-7-vue-6-filters",
+  "link" : "vue.6.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Computed Data & Watchers ",
+  "img" : "vue.7.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we discuss some of the slightly more advanced features of Vue and how we can trigger events or side effects when the data model changes.</p>",
+  "folder" : "talk-8-vue-7-computed",
+  "link" : "vue.7.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Transitioning Effects ",
+  "img" : "vue.8.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we introduce the Vue.js transition wrapper component, which allows add, entering and leaving transitions for any element or component in multiple contexts.</p>",
+  "folder" : "talk-9-vue-8-transitions",
+  "link" : "vue.8.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Deploy-to-Firebase",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>As a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your app to Firebase.</p>",
+  "folder" : "book-webvue-wfirebase",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "Vue JS - Supplementary Material ",
+  "img" : "talk-1-vue-1-structure/structure.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-6",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Vue & webpack ",
+  "img" : "structure.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we take a quick look at our case study web app and its build structure using Webpack.</p>",
+  "folder" : "talk-1-vue-1-structure",
+  "link" : "structure.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "RESTful APi & Axios ",
+  "img" : "axios.png",
+  "videoid" : "none",
+  "objectives" : "<p>Here we take a quick look at how we use <strong>Axios</strong> - A Promise based HTTP Client - to make calls on our Node Server.</p>",
+  "folder" : "talk-3-vue-axios",
+  "link" : "axios.pdf",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  }
+ ]
+  }
+

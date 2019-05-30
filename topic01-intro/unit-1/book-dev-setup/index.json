@@ -1,0 +1,59 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Setup",
+  "img" : "img/main.gif",
+  "videoid" : "none",
+  "objectives" : "<h3>This is where you can find all the info you need to setup your MEVN build environment.</h3>",
+  "folder" : "book-dev-setup",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "## *MEVN* stack is a full-stack JavaScript solution that helps you build fast, robust and maintainable production level web applications.",
+    "shortTitle": "Setup",
+    "contentMd" : "## *MEVN* stack is a full-stack JavaScript solution that helps you build fast, robust and maintainable production level web applications.\n\n### This is where you can find all the info you need to setup your MEVN build environment.\n\n![](img/mevn.light.png)\n\n\n\nBefore you attempt any of the labs, Make sure you have the **WebStorm** IDE installed and configured. If you want to go 'old school' I'd recommend downloading and installing **sublime text** or **Atom** to use as your JS editor - you can use any text editor you like really, but I'll be using **WebStorm** for all the labs.\n\nYou can visit the live site at [donationweb-vue.firebaseapp.com](https://donationweb-vue.firebaseapp.com), to get an idea of what you COULD be developing, and here for what you'll ACTUALLY be developing in the labs [donationweb-ssd.firebaseapp.com](https://donationweb-ssd.firebaseapp.com)\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "Webstorm",
+    "contentMd" : "\n![](img/webstormlogo.png)\n\nThe first thing to do is go to the official JetBrains resources and get yourself an educational licensed version of their WebStorm IDE.\n\nYou can find the download link [here](https://www.jetbrains.com/webstorm/) and the Student License application form [here](https://www.jetbrains.com/student/).\n\n**Don't forget to activate your subscription with your JetBrains account (and not an activation code or license server)**\n\n![](img/wsactivation.png)\n\nWe'll look at the IDE (and its features) in detail as we work through the labs.\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "Node",
+    "contentMd" : "\n![](img/nodejs2.png)\n\nInstaling [NodeJS](https://nodejs.org) is pretty much essential for any modern web development, so if you haven't got it installed already, you can install it (and the Node Package Manager npm) [here](https://nodejs.org).\n\nThere's also some useful info here - [Installing Node.js and updating npm](https://docs.npmjs.com/getting-started/installing-node).\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "Express",
+    "contentMd" : "\n![](img/node.express.png)\n\nBefore you install [express](http://www.expressjs.com), make sure you have [node and npm](https://docs.npmjs.com/getting-started/installing-node) installed already.\n\nGo to the command line and type the following\n\n~~~JS\nnpm install -g express\n~~~\n\nThat's it - you now have express installed! (globally (-g) )\n\nIt's probably worth installing the generator package as well\n\n~~~JS\nnpm install -g express-generator\n\n~~~\n\nif you type\n\n~~~JS\nnpm install -g express --save\n~~~\n\nwithin your project folder, it will add express to your dependencies (but we'll cover that later on).\n\n**You can also use WebStorm to search for and add these dependencies to your project** (like we did in the JS labs).\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "MongoDB",
+    "contentMd" : "\n![](img/mongodbmlab.png)\n\nTo install mongodb go to the official site and follow the instructions for your particular environment [here](http://www.mongodb.com).\n\nWe won't be using a mongodb database until later on in the module, but it's worth having it installed and setup before we actually need it.\n\nYou might also want to set up an [mlabs account](http://www.mlab.com) if you plan on deploying your project - here's the general set of screens you'll go through during the setup.\n\n![](img/mlab01.png)\n![](img/mlab02.png)\n![](img/mlab03.png)\n![](img/mlab04.png)\n![](img/mlab05.png)\n![](img/mlab06.png)\n![](img/mlab07.png)\n![](img/mlab08.png)\n![](img/mlab09.png)\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "Vue",
+    "contentMd" : "\n![](img/vue.png)\n\nVisit the official Vue JS resources and set up your development environment as instructed.\n\nYou can find nearly everything you need [here](https://vuejs.org).\n\nI'd also recommend installing [SourceTree](https://www.sourcetreeapp.com) and setting up either a [bitbucket](http://www.bitbucket.org) (my personal favourite!) or [GitHub](http://www.github.com) account (if you haven't got one already) to manage versioning control of all your labs.\n\nOnce you have SourceTree installed, you can easily set up a local git repository and sync it up remotely with you bitbucket account as described [here](https://confluence.atlassian.com/display/BITBUCKET/Create+a+repository). It's probably best to set it up from the command line first and then just 'drag-n-drop' your folder onto the SourceTree app - and you're done!\n"
+    }
+  
+  ]
+  }
+

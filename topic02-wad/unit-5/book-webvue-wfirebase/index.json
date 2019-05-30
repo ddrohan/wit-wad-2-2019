@@ -1,0 +1,41 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Deploy-to-Firebase",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>As a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your app to Firebase.</p>",
+  "folder" : "book-webvue-wfirebase",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "# Deploying our App to Firebase",
+    "shortTitle": "Deploy-to-Firebase",
+    "contentMd" : "# Deploying our App to Firebase\n\nAs a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your app to Firebase."
+    },
+  
+    {
+    "title": "# Step 01 - Requirements",
+    "shortTitle": "01",
+    "contentMd" : "# Step 01 - Requirements\n\nFor reference, I mainly used this [link](https://firebase.google.com/docs/hosting/deploying) when deploying to Firebase.\n"
+    },
+  
+    {
+    "title": "# Step 02 - Using the Firebase CLI",
+    "shortTitle": "02",
+    "contentMd" : "# Step 02 - Using the Firebase CLI\n\nWhat follows are a series of screenshots which cover my own deployment of Version 3.0 of our Vue Web App.\n\nYou must initially have a firebase account and login with\n\n```\nfirebase login\n```\n\nand then initialise firebase in your project folder with\n\n\n```\nfirebase init\n```\n\nYou then just basically follow the instructions :)\n\n![](img/firebase.1.png)\n\n![](img/firebase.2.png)\n\n![](img/firebase.3.png)\n\n![](img/firebase.4.png)\n\nOnce the firebase initialisation is complete you then\n\n\n```\nnpm run build\n```\nto 'build' a deployment version of your Vue App\n\n![](img/firebase.5.png)\n\nand then\n\n\n```\nfirebase deploy\n```\n\nto actually deploy your web app.\n\n![](img/firebase.6.png)\n"
+    }
+  
+  ]
+  }
+

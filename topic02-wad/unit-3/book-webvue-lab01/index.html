@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Vue JS - Introduction, Overview & Core Features  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-Vue-01">
+          Lab-Vue-01
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="Solution">
+          Solution
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-Vue-01">
+            <h1>Lab Vue 01 - DonationVue-1.0 (Vue Client App)</h1>
+<p>This lab involves building your 1st Vue Web App - <strong>DonationVue-1.0</strong>.</p>
+<p>To begin with, it won&#39;t actually do much, but it will give you an introduction to some of the basics of what constitutes a Vue Web App, and set up the navigation we need for all the pages in our existing Donation Web App Server.</p>
+<p>You can have a look at the this version of the app in action on the YouTube Channel <a href="https://youtu.be/bxr1fCouy08">here</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Step 1 - Objectives</h1>
+<p>In this Lab, you will be required to build the first version of our (Client) Vue Web App, called <strong>DonationVue-1.0</strong>. We will use WebStorm to initially build the most basic starter Vue app and then &#39;customise&#39; the app to suit our requirements. In this version we will just set up the &#39;links&#39; we need in our app and introduce some simple <strong>components</strong> and <strong>routes</strong>.  </p>
+<p>On completion of this lab you&#39;ll be able to</p>
+<ul>
+<li>design an initial layout for the app</li>
+<li>add some basic <strong>components</strong> to manage your pages (your <strong>templates</strong>)</li>
+<li>implement basic navigation using the <strong>Router</strong> component</li>
+<li>be able to use 2-way Data Binding</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 2 - Setup</h1>
+<p>First thing you should do ( if you haven&#39;t done so already) is install the <strong>Vue CLI</strong> so run</p>
+<pre><code>npm install -g vue-cli</code></pre>
+<p>Next, you&#39;ll need the <strong>Git</strong> application/executable (depending on Mac/Windows)</p>
+<p>so you can get the respective installers</p>
+<p>here <a href="https://git-scm.com/download/mac">Git for Mac</a></p>
+<p>and</p>
+<p>here <a href="https://git-scm.com/download/win">Git for Windows</a></p>
+<p>Next, launch WebStorm and create a basic <strong>Vue.js</strong> application and name it appropriately, as below</p>
+<p><img src="img/labvue0101.png" alt=""></p>
+<p>NOTE : Make sure you choose &#39;webpack&#39; as the project template, if not already selected and if you don&#39;t see a path to the vue-cli then you don&#39;t have it installed so visit <a href="https://vuejs.org/v2/guide/installation.html">Vue Installation</a> to install.</p>
+<p>You can accept all the defaults, with the exception of the &#39;test runner&#39; option, so choose <em>Karma and Mocha</em>.</p>
+<p><img src="img/labvue0102.png" alt=""></p>
+<p>Also, if you chose to install <strong>ESLint</strong> to lint your code, you better take care how you write your javascript :)</p>
+<p>Your project will look like this - there&#39;s <strong>a lot</strong> going on here, but we&#39;ll run through the important stuff as we progress through the lab :)</p>
+<p><img src="img/labvue0103.png" alt=""></p>
+<p>To run the app we need to use npm</p>
+<pre><code class="lang-js">npm run start</code></pre>
+<p>in the current directory but WebStorm can do this for us, so choose the npm tab and double-click &#39;start&#39;</p>
+<p><img src="img/labvue0104.png" alt=""></p>
+<p>You&#39;ll get something along these lines</p>
+<p><img src="img/labvue0105.png" alt=""></p>
+<p>and if you then visit</p>
+<pre><code>http://localhost:8080</code></pre>
+<p>you should see your first Vue Web App, like so</p>
+<p><img src="img/labvue0106.png" alt=""></p>
+<p><strong>Well Done!!</strong></p>
+<p>NOTE : IF YOU GET AN ERROR ALONG THE LINES OF</p>
+<pre><code>BrowserslistError: Unknown browser query `dead`</code></pre>
+<p>THEN YOU NEED TO FOLLOW THESE STEPS</p>
+<ol>
+<li>Open &#39;package.json&#39; of &#39;\node_module\bootstrap&#39;</li>
+<li>Find &#39;browserlist&#39;</li>
+<li>In the List Array, you will notice &quot;not dead&quot; - DELETE THIS</li>
+<li>Done :)</li>
+</ol>
+<p>The next few steps involve &#39;customising&#39; this app to look like this</p>
+<p><img src="img/labvue01complete.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 3 - Adding Some Basic Navigation</h1>
+<p>We&#39;re going to use a Navigation bar to allow a user to navigate our app and use certain features. We&#39;ll begin by adding a &#39;Manage Donations&#39; &amp; &#39;Donate&#39; option - they won&#39;t actually do anything except display a message, but it&#39;ll be a nice simple start.</p>
+<p>Before we can add our <em>navbar</em> there&#39;s a few dependencies and assets we need to add (there&#39;ll be quite a lot by the time we&#39;re finished!!)</p>
+<p>The first one (and important one) is</p>
+<pre><code class="lang-js">bootstrap-vue</code></pre>
+<p>so go ahead and add that now via the npm option in Webstorm.</p>
+<p>WebStorm-&gt;Preferences-&gt;Languages &amp; Frameworks-&gt;NodeJS &amp; NPM</p>
+<p>Now, open your &#39;main.js&#39; and import the following</p>
+<pre><code class="lang-js">import BootstrapVue from &#39;bootstrap-vue&#39;
+import &#39;bootstrap/dist/css/bootstrap.css&#39;
+import &#39;bootstrap-vue/dist/bootstrap-vue.css&#39;</code></pre>
+<p>and finally add</p>
+<pre><code class="lang-js">Vue.use(BootstrapVue)</code></pre>
+<p>Now open your <strong>&#39;index.html&#39;</strong> and add this link to end of your <strong>&#39;HEAD&#39;</strong> tag (as we&#39;ll be using Font Awesome Icons)</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot;
+         href=&quot;https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css&quot; /&gt;</code></pre>
+<p>Finally, download some assets here and copy into you own assets directory  <strong><a href="archives/assets.zip">assets</a></strong></p>
+<p>Build your app again, to make sure there&#39;s no errors and then move on to adding a navbar.</p>
+<p>First thing to do is replace the current <strong>template</strong> html in &#39;App.vue&#39; with this</p>
+<pre><code class="lang-html">&lt;b-navbar toggleable=&quot;md&quot; variant=&quot;dark&quot; type=&quot;dark&quot;&gt;
+      &lt;b-navbar-toggle target=&quot;nav_collapse&quot;&gt;&lt;/b-navbar-toggle&gt;
+      &lt;img src=&quot;./assets/mevnnav.png&quot; class=&quot;img-circle&quot; style=&quot;padding: 5px&quot;&gt;
+      &lt;b-navbar-brand to=&quot;/&quot;&gt;Donations Web App&lt;/b-navbar-brand&gt;
+      &lt;b-collapse is-nav id=&quot;nav_collapse&quot;&gt;
+        &lt;b-navbar-nav&gt;
+          &lt;b-nav-item to=&quot;/#&quot;&gt;&lt;i class=&quot;fa fa-home&quot; style=&quot;padding: 5px&quot;&gt; Home&lt;/i&gt;&lt;/b-nav-item&gt;
+          &lt;b-nav-item to=&quot;/donations&quot;&gt;&lt;i class=&quot;fa fa-list&quot; style=&quot;padding: 5px&quot;&gt; Manage Donations&lt;/i&gt;&lt;/b-nav-item&gt;
+        &lt;/b-navbar-nav&gt;
+        &lt;b-navbar-nav class=&quot;ml-auto&quot;&gt;
+          &lt;b-nav-item to=&quot;/login&quot;&gt;&lt;i class=&quot;fa fa-sign-in&quot; style=&quot;padding: 5px&quot;&gt; Login &lt;/i&gt;&lt;/b-nav-item&gt;
+          &lt;b-nav-item to=&quot;/logout&quot;&gt;&lt;i class=&quot;fa fa-sign-out&quot; style=&quot;padding: 5px&quot;&gt; Logout &lt;/i&gt;&lt;/b-nav-item&gt;
+          &lt;i class=&quot;fa fa-pied-piper-alt fa-1x&quot; style=&quot;padding: 5px; color: white;&quot;&gt;&lt;/i&gt;
+        &lt;/b-navbar-nav&gt;
+      &lt;/b-collapse&gt;
+    &lt;/b-navbar&gt;</code></pre>
+<p>NOTE : make sure it&#39;s between the</p>
+<pre><code class="lang-html">&lt;div&gt;</code></pre>
+<p>tag and before the</p>
+<pre><code class="lang-html">&lt;router-view&gt;</code></pre>
+<p>tag</p>
+<p>Next <strong>rename</strong> the &#39;HelloWorld&#39; component to &#39;Home&#39; and replace all it&#39;s code with the following</p>
+<pre><code class="lang-js">&lt;template&gt;
+  &lt;div class=&quot;hero&quot;&gt;
+      &lt;h1 class=&quot;vue-title&quot;&gt;Homer for President !!&lt;/h1&gt;
+
+        &lt;table align=&quot;center&quot;&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+              &lt;p class=&quot;lead&quot;&gt;&lt;b&gt;&lt;i&gt;Time for a change !!&lt;/i&gt;&lt;/b&gt;
+              &lt;p&gt;Out with Boring Prumt - Giving has never been so easy.&lt;/p&gt;
+              &lt;p&gt;Just click &lt;a href =&quot;/donate&quot;&gt;here&lt;/a&gt; to go to&lt;/p&gt;
+              &lt;p&gt;the Donation page and empty your wallet&lt;/p&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;img src=&quot;../assets/homer.gif&quot; alt=&quot;description here&quot; /&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+
+      &lt;p&gt;&lt;/p&gt;
+      &lt;p class=&quot;lead&quot;&gt;This is the homepage of your &lt;b&gt;MEVN&lt;/b&gt; Web app&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .hero {
+    height: 100vh;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero .lead {
+    font-weight: 200;
+    font-size: 2.5rem;
+  }
+  #app1 {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .vue-title {
+    font-size: 70pt;
+    margin-bottom: 10px;
+  }
+&lt;/style&gt;</code></pre>
+<p>There&#39;ll be a few errors, so see if you can fix them.</p>
+<p>Once you have, and you run the app again, you&#39;ll get something like This</p>
+<p><img src="img/labvue0107.png" alt=""></p>
+<p>Now, let&#39;s add some functionality and allow the user to navigate to the &#39;Manage Donations&#39; page.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Step 4 - Implement the &#39;Manage Donations&#39; Page</h1>
+<p>At this point we have a simple navigation bar but none of the links work - in this step we&#39;ll add in a <strong>Vue Component</strong> that allows the user to &#39;manage&#39; the donations as well as visiting the &#39;Home&#39; page.</p>
+<p>Firstly, open up &#39;App.vue&#39; and confirm the &#39;link&#39; to &#39;manage&#39; donations.</p>
+<p>Next, open &#39;router/index.js&#39; and confirm that the &#39;Home&#39; route is present</p>
+<pre><code class="lang-js">  {
+    path: &#39;/&#39;,
+    name: &#39;Home&#39;,
+    component: Home
+  }</code></pre>
+<p>We need to add a similar route for our <strong>&#39;/donations&#39;</strong> path so the first thing to do is go ahead and add a new <strong>Donations</strong> component</p>
+<p>New-&gt;Vue Component and make sure you store it in the <em>components</em> directory</p>
+<p><img src="img/labvue0108.png" alt=""></p>
+<p>You&#39;ll initially have this</p>
+<pre><code class="lang-js">&lt;template&gt;
+
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        name: &quot;Donations&quot;
+    }
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;</code></pre>
+<p>so add the following to the template tag</p>
+<pre><code class="lang-html">&lt;div class=&quot;hero&quot;&gt;
+  &lt;h3 class=&quot;vue-title&quot;&gt;&lt;i class=&quot;fa fa-list&quot; style=&quot;padding: 3px&quot;&gt;&lt;/i&gt;{{messagetitle}}&lt;/h3&gt;
+&lt;/div&gt;</code></pre>
+<p>replace the export statement with the following</p>
+<pre><code class="lang-js">export default {
+  name: &#39;Donations&#39;,
+  data () {
+    return {
+      messagetitle: &#39; Donations List &#39;
+    }
+  }
+}</code></pre>
+<p>and add the following to the style tag</p>
+<pre><code class="lang-html">.vue-title {
+   margin-top: 30px;
+   text-align: center;
+   font-size: 45pt;
+   margin-bottom: 10px;
+ }</code></pre>
+<p>Here&#39;s the full Donations component for reference</p>
+<pre><code class="lang-js">&lt;template&gt;
+  &lt;div class=&quot;hero&quot;&gt;
+    &lt;h3 class=&quot;vue-title&quot;&gt;&lt;i class=&quot;fa fa-list&quot; style=&quot;padding: 3px&quot;&gt;&lt;/i&gt;{{messagetitle}}&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &#39;Donations&#39;,
+  data () {
+    return {
+      messagetitle: &#39; Donations List &#39;
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+  .vue-title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 45pt;
+    margin-bottom: 10px;
+  }
+&lt;/style&gt;</code></pre>
+<p>Now, we need to &#39;wire it up&#39; so open your &#39;router/index.js&#39; again and add the following route object</p>
+<pre><code class="lang-js">    {
+      path: &#39;/donations&#39;,
+      name: &#39;Donations&#39;,
+      component: Donations
+    }</code></pre>
+<p>If you try and run your app you&#39;ll probably get the following error</p>
+<p><img src="img/labvue0109.png" alt=""></p>
+<p>so add the following import to fix the issue</p>
+<pre><code class="lang-js">import Donations from &#39;@/components/Donations&#39;</code></pre>
+<p>Run you app again and you should get the following when your navigate to &#39;Manage Donations&#39;</p>
+<p><img src="img/labvue0110.png" alt=""></p>
+<p>It&#39;s not much at the moment, but we now have navigation features in our app.</p>
+<p>The next step is to add in the rest of the navigation options</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Step 5 - Implementing the &#39;Donate&#39;, &#39;About Us&#39; &amp; &#39;Contact Us&#39; Pages</h1>
+<p>This step involves adding more navigation links to our nav bar to take the user to the other pages available, like so</p>
+<p><img src="img/labvue0111.png" alt=""></p>
+<h2>Updating the Navigation Bar</h2>
+<p>Just to get you started, replace the current navbar in your &#39;App.vue&#39; with this one</p>
+<pre><code class="lang-html">&lt;b-navbar toggleable=&quot;md&quot; variant=&quot;dark&quot; type=&quot;dark&quot;&gt;
+     &lt;b-navbar-toggle target=&quot;nav_collapse&quot;&gt;&lt;/b-navbar-toggle&gt;
+     &lt;img src=&quot;./assets/mevnnav.png&quot; class=&quot;img-circle&quot; style=&quot;padding: 5px&quot;&gt;
+     &lt;b-navbar-brand to=&quot;/&quot;&gt;Donations Web App&lt;/b-navbar-brand&gt;
+     &lt;b-collapse is-nav id=&quot;nav_collapse&quot;&gt;
+       &lt;b-navbar-nav&gt;
+         &lt;b-nav-item to=&quot;/#&quot;&gt;&lt;i class=&quot;fa fa-home&quot; style=&quot;padding: 5px&quot;&gt; Home&lt;/i&gt;&lt;/b-nav-item&gt;
+         &lt;b-nav-item to=&quot;/donations&quot;&gt;&lt;i class=&quot;fa fa-list&quot; style=&quot;padding: 5px&quot;&gt; Manage Donations&lt;/i&gt;&lt;/b-nav-item&gt;
+         &lt;b-nav-item to=&quot;/donate&quot;&gt;&lt;i class=&quot;fa fa-money&quot; style=&quot;padding: 5px&quot;&gt; Donate&lt;/i&gt;&lt;/b-nav-item&gt;
+         &lt;b-nav-item to=&quot;/map&quot;&gt;&lt;i class=&quot;fa fa-globe&quot; style=&quot;padding: 5px&quot;&gt; Map&lt;/i&gt;&lt;/b-nav-item&gt;
+       &lt;/b-navbar-nav&gt;
+         &lt;b-navbar-nav class=&quot;ml-auto&quot;&gt;
+           &lt;b-nav-item to=&quot;/about&quot;&gt;&lt;i class=&quot;fa fa-info&quot; style=&quot;padding: 5px&quot;&gt; About Us&lt;/i&gt;&lt;/b-nav-item&gt;
+           &lt;b-nav-item to=&quot;/contact&quot;&gt;&lt;i class=&quot;fa fa-comment&quot; style=&quot;padding: 5px&quot;&gt; Contact Us&lt;/i&gt;&lt;/b-nav-item&gt;
+           &lt;b-nav-item to=&quot;/login&quot;&gt;&lt;i class=&quot;fa fa-sign-in&quot; style=&quot;padding: 5px&quot;&gt; Login &lt;/i&gt;&lt;/b-nav-item&gt;
+           &lt;b-nav-item to=&quot;/logout&quot;&gt;&lt;i class=&quot;fa fa-sign-out&quot; style=&quot;padding: 5px&quot;&gt; Logout &lt;/i&gt;&lt;/b-nav-item&gt;
+           &lt;i class=&quot;fa fa-pied-piper-alt fa-1x&quot; style=&quot;padding: 5px; color: white;&quot;&gt;&lt;/i&gt;
+       &lt;/b-navbar-nav&gt;
+     &lt;/b-collapse&gt;
+   &lt;/b-navbar&gt;</code></pre>
+<p>For the purposes of the Case Study we&#39;ll only be implementing</p>
+<ul>
+<li>/donations (already done)</li>
+<li>/donate</li>
+<li>/about</li>
+<li>/contact</li>
+</ul>
+<p>and it&#39;s really only the first two will contain any logic, but it&#39;ll be a good exercise to implement them all.</p>
+<p>The process is the same as was done for <em>/donations</em> so have a go at the other 3. You&#39;ll need to</p>
+<ol>
+<li>Create a separate <strong>component</strong> for each</li>
+<li>Decide inside each components <strong>template</strong> how it will render</li>
+<li><strong>style</strong> it appropriately</li>
+<li>Add the necessary <strong>script</strong> ing for (this time)  displaying the Title (our 2-way reactive data binding)</li>
+</ol>
+<p>Away you go!!</p>
+<p>Once you&#39;re done, you should have something like these</p>
+<p><a href="https://youtu.be/bxr1fCouy08">Click to see Video</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solution">
+            <h1>Solution - Lab Vue 01</h1>
+<p>You can find the solution to this lab <strong><a href="archives/donationvue-1.0.zip">here</a></strong>.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

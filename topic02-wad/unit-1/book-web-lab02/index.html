@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Node JS  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-02">
+          Lab-02
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+        <a class="item" data-tab="Solution">
+          Solution
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-02">
+            <h1>Lab 2 - DonationWeb 2.0 (Express &amp; Node App Continued)</h1>
+<p>In this lab we will be using our WebStorm IDE to build a simple Node/Express Server to initially act as a Web Service APi which we will test manually, and eventually it will be our back-end to a full MEAN Stack Web App.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Objectives</h1>
+<p>In this Lab, you will be required to build the first version of our Donation Case Study Web App, called <strong>DonationWeb 2.0</strong>.  We will scaffold the app similar to <a href="https://ddrohan.github.io/wit-wad/topic02-node/book-web-lab01/index.html">Lab 1</a>, so if you&#39;re still a bit unsure of this process, maybe have a go at it again?</p>
+<p>On completion of this lab you&#39;ll be able to</p>
+<ul>
+<li>create a simple <strong>NodeJS</strong> app using <strong>express</strong></li>
+<li>run this app as a <strong>NodeJS Server</strong> and process client requests</li>
+<li>be able to use <strong>npm</strong> to install dependency modules</li>
+<li>be able to implement a simple Web APi</li>
+</ul>
+<p>In this version we will be implementing a simple <strong>RESTful APi</strong> with the following routes</p>
+<ul>
+<li><strong>GET /donations</strong> - return a list of donations and associated metadata</li>
+<li><strong>GET /donations/:id</strong> - return an individual donation with associated metadata</li>
+<li><strong>POST /donations</strong> - create a new donation</li>
+<li><strong>PUT /donations/:id/upvote</strong> - upvote a donation, notice we use the donation ID in the URI</li>
+<li><strong>DELETE /donations/:id</strong>  - delete a donation by its ID</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 2 - Project Setup</h1>
+<p>We&#39;re going to build our first Node/Express DonationWeb project, so (assuming you already have it installed) launch your WebStorm IDE and create a new Node/Express Project as follows:</p>
+<p>(Just for reference, you&#39;ll probably see the list of projects previously opened, like below)</p>
+<p><img src="img/lab02s01.png" alt=""></p>
+<p>Select &#39;Create New Project&#39; and you should get something like this:</p>
+<p><img src="img/lab02s02.png" alt=""></p>
+<p>Select a &#39;Node.js Express App&#39; and browse to the location you want to store your project files. It&#39;s probably a good idea to store all your web apps in a single folder (as we did in Lab 01) so go ahead and name your project <strong>donationweb-2.0</strong> (as above).</p>
+<p>Make sue you choose <strong>EJS</strong> again as the templating option (like before)</p>
+<p>Your project should now look like this</p>
+<p><img src="img/lab02s03.png" alt=""></p>
+<p>Open up your <strong>index.js</strong>, and like we did in Lab 01, change the &#39;title&#39; of our Project (as below)  </p>
+<p><img src="img/lab02s04.png" alt=""></p>
+<p>and once again, click on the &#39;play&#39; button to run/launch your Web App..</p>
+<p>If you&#39;ve followed all the steps correctly you should be able to run your app (or visit <a href="http://localhost:3000"><a href="http://localhost:3000">http://localhost:3000</a></a>) and see something like the following:</p>
+<p><img src="img/lab02s06.png" alt=""></p>
+<p>Now, if you&#39;d rather your browser launch automatically you can configure you &#39;Run&#39; options and choose the Browser you prefer</p>
+<p>Just be sure to &#39;tick&#39; the &#39;After Launch&#39; check box</p>
+<p><img src="img/lab02s05.png" alt=""></p>
+<p>Close the browser tab/window and run your app again, to confirm your new run configuration is correct.</p>
+<p>The next few steps will involve implementing some of our RESTful APi and some WebStorm configuration changes.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 3 - Creating our &#39;Model&#39;</h1>
+<p>Before we can think about accessing data on our Server via a RESTful APi, we first need the actual data :) , so this step will involve creating a list of &#39;Donations&#39; that we can &#39;expose&#39; via our APi.</p>
+<p>The first thing we need to do is create a new directory in our root directory called <strong><em>models/</em></strong></p>
+<p><img src="img/lab02s07.png" alt=""></p>
+<p>and then</p>
+<p><img src="img/lab02s08.png" alt=""></p>
+<p>and within that directory create a new file called <strong>donations.js</strong>.</p>
+<p><img src="img/lab02s09.png" alt=""></p>
+<p>and</p>
+<p><img src="img/lab02s10.png" alt=""></p>
+<p>Now, paste the following code into your newly created <strong>donations.js</strong> file</p>
+<pre><code class="lang-javascript">const donations = [
+                 {id: 1000000, paymenttype: &#39;PayPal&#39;, amount: 1600, upvotes: 1},
+                 {id: 1000001, paymenttype: &#39;Direct&#39;, amount: 1100, upvotes: 2},
+                 {id: 1000002, paymenttype: &#39;Visa&#39;, amount: 1000, upvotes: 1}
+                ];
+
+module.exports = donations;</code></pre>
+<p>Notice the field (id) in our model, this will be useful later on for deleting etc.</p>
+<p>Your project should now look something like this</p>
+<p><img src="img/lab02s11.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Step 4 - Adding our &#39;Routes&#39;, Part 1 ( &#39;findAll&#39; &amp; &#39;findOne&#39;)</h1>
+<p>With our &quot;backend&quot; model in place, it&#39;s now time to open some routes that a client can interact with. The following are a list of actions a user can perform:</p>
+<ul>
+<li>view all donations</li>
+<li>Find a single donation</li>
+<li>Add a new donation</li>
+<li>Upvote a donation</li>
+<li>Delete a donation</li>
+</ul>
+<p>The actions map directly to several routes, which are described as follows:</p>
+<ul>
+<li>GET <strong>/donations</strong> - return a list of donations and associated metadata</li>
+<li>GET <strong>/donations/:id</strong> - return an individual donation with associated metadata</li>
+<li>POST <strong>/donations</strong> - create a new donation</li>
+<li>PUT <strong>/donations/:id/upvote</strong> - upvote a donation, notice we use the donation ID in the URL</li>
+<li>DELETE <strong>/donations/:id</strong> - delete a donation by ID</li>
+</ul>
+<hr>
+<p>Before we proceed, WebStorm has a very nice (and useful!) feature to assist the developer in writing javascript - <strong>Code Assistance</strong>, which happens to be disabled by default, so we need to turn it on, as follows;</p>
+<p>File-&gt;Default Settings</p>
+<p><img src="img/lab02s12.png" alt=""></p>
+<p>Languages &amp; Frameworks-&gt;Node.js &amp; NPM</p>
+<p><img src="img/lab02s13.png" alt=""></p>
+<p><strong>Enable</strong> Node.js Core Library</p>
+<p><img src="img/lab02s14.png" alt=""></p>
+<p>I&#39;d also update the package manager to <strong>NPM</strong> if it&#39;d not already selected.</p>
+<hr>
+<h2>Creating Our First Route - &#39;List All Donations&#39;</h2>
+<p>To keep things organised we will be defining these routes in a <strong>routes/donations.js</strong> file, so create a new file &#39;donations.js&#39; in the existing &#39;routes&#39; folder in your project.</p>
+<p>Let&#39;s begin by opening up the first route we listed, which should return a <strong>JSON</strong> list containing all donations. We start by creating a function (<strong><em>findAll</em></strong>) for retrieving donations in our <strong>routes/donations.js</strong> file.</p>
+<pre><code class="lang-javascript">let donations = require(&#39;../models/donations&#39;);
+let express = require(&#39;express&#39;);
+let router = express.Router();
+
+router.findAll = (req, res) =&gt; {
+  // Return a JSON representation of our list
+    res.json(donations);
+}
+
+module.exports = router;</code></pre>
+<p>We make sure we import <strong>express</strong> and have a handle to our donations model. By right, we should have some error handling in there, but we&#39;ll be optimistic!</p>
+<p>Next, inside our <strong>app.js</strong> we need to define the actual route which will trigger the above function so add the following around line 26/27 to add the actual <strong><em>GET</em></strong> APi route.</p>
+<p>(there&#39;ll be other, similar, routes around that line so just add it after those but BEFORE the error handling).</p>
+<pre><code class="lang-javascript">app.get(&#39;/donations&#39;, donations.findAll);</code></pre>
+<p>Now, try and run your app and see what happens....</p>
+<p>You probably got something like this</p>
+<p><img src="img/lab02s15.png" alt=""></p>
+<p>We&#39;re trying to call a function &#39;findAll&#39; on an object (donations) that the js interpreter can&#39;t find.</p>
+<p>Ordinarily, we&#39;d have to manually add in the javascript we need, but we can get WebStorm to do this for us - first, just move your mouse over the error to get some extra info</p>
+<p><img src="img/lab02s16.png" alt=""></p>
+<p>Now highlight the error and hit Alt+Enter (on a Mac) and you get the following;</p>
+<p><img src="img/lab02s17.png" alt=""></p>
+<p>Choose the correct &#39;fix&#39; and the necessary &#39;requires&#39; statement is added to our js file - kinda handy don&#39;t you think?!</p>
+<p><img src="img/lab02s18.png" alt=""></p>
+<p>Now, to actually test our APi we need to launch our Server again and point the browser at <a href="http://localhost:3000/donations"><a href="http://localhost:3000/donations">http://localhost:3000/donations</a></a> and we should get back a json string of our data, like so.</p>
+<p><img src="img/lab02s19.png" alt=""></p>
+<p>Now, to display our JSON in a more readable format we can update our response HEADERS and &#39;stringify&#39; the json, like so</p>
+<pre><code class="lang-js">res.setHeader(&#39;Content-Type&#39;, &#39;application/json&#39;);
+res.send(JSON.stringify(donations,null,5));</code></pre>
+<p>and if we run the app again we get</p>
+<p><img src="img/lab02s20.png" alt=""></p>
+<p>Over time, this would probably become a bit time consuming, but WebStorm to the rescue again :) there&#39;s a feature to <strong>Test RESTful Web Service</strong>, so launch that like so</p>
+<p><img src="img/lab02s21a.png" alt=""></p>
+<p>or</p>
+<p><img src="img/lab02s21b.png" alt=""></p>
+<p>and you get the <strong>REST Client</strong> window, so select/type in the following for our test request</p>
+<ul>
+<li>HTTP Method <strong>GET</strong></li>
+<li>Host/port <strong><a href="http://localhost:3000">http://localhost:3000</a></strong></li>
+<li>Path <strong>/donations</strong></li>
+</ul>
+<p><img src="img/lab02s22.png" alt=""></p>
+<p>On the &#39;Request&#39; tab, update the &#39;Accept&#39; Header <strong>application/json</strong></p>
+<p>If everything goes according to plan, you&#39;ll see the same json list of donations in the <strong>Response</strong>.</p>
+<p>You could continue to use the browser to test the APi, but things will get a bit tricky when we want to test our add &amp; update requests so we&#39;ll stick with the REST Client for the moment.</p>
+<hr>
+<h2>Creating Our Second Route - &#39;findOne&#39;</h2>
+<p>Our first route returned all the donations to a client, but what if the client only wants to get at a single donation - that&#39;s what our next route &#39;findOne&#39; will do.</p>
+<p>First, add a &#39;helper&#39; function (which might look a bit familiar from previous labs)</p>
+<pre><code class="lang-js">function getByValue(array, id) {
+          var result  = array.filter(function(obj){return obj.id == id;} );
+          return result ? result[0] : null; // or undefined
+        }</code></pre>
+<p>and here&#39;s the function stub (<strong><em>findOne</em></strong>) to be added to our <strong>routes/donations.js</strong> file</p>
+<pre><code class="lang-javascript">router.findOne = (req, res) =&gt; {
+
+// Create a donation variable and use the helper function
+// to find
+// req.params.id
+// in our donations array
+
+// Then either return the found donation
+// or a suitable error message
+}</code></pre>
+<p>You&#39;ll then need to add the route to your <strong>app.js</strong></p>
+<pre><code class="lang-javascript">HTTP REQUEST = GET
+ROUTE PATH = &#39;/donations/:id&#39;</code></pre>
+<p>so go ahead and have a go at that (very similar to &#39;findAll&#39;).</p>
+<p>Also, just for completeness, you should format the json response again.</p>
+<h3>Testing Our &#39;findOne&#39; Route</h3>
+<p>Now that we have another GET &#39;service&#39; in our RESTful APi, we should really test it via our REST Client.</p>
+<h3>The Request</h3>
+<p>GETing donation with id &#39;1000001&#39;</p>
+<pre><code class="lang-html">/donations/1000001</code></pre>
+<h3>The Response</h3>
+<p><img src="img/lab02s23.png" alt=""></p>
+<p>Requesting donation with id &#39;10000011&#39;</p>
+<pre><code class="lang-html">/donations/10000011</code></pre>
+<p><img src="img/lab02s24.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Step 5 - Adding our &#39;Routes&#39;, Part 2 (&#39;addDonation&#39; &amp; &#39;incrementUpvotes&#39;)</h1>
+<p>Before we go any further, recall our routes, described as follows:</p>
+<ul>
+<li>GET <strong>/donations</strong> - return a list of donations and associated metadata</li>
+<li>GET <strong>/donations/:id</strong> - return an individual donation with associated metadata</li>
+<li>POST <strong>/donations</strong> - create a new donation</li>
+<li>PUT <strong>/donations/:id/upvote</strong> - upvote a donation, notice we use the donation ID in the URL</li>
+<li>DELETE <strong>/donations/:id</strong> - delete a donation by ID</li>
+</ul>
+<p>We&#39;ve already implemented the first two, so now let&#39;s have a go at</p>
+<ul>
+<li>Adding a new donation and &#39;Upvoting&#39; a donation - we&#39;ll leave deleting a donation until the last step</li>
+</ul>
+<h2>Creating Our &#39;Add&#39; Route - &#39;addDonation&#39;</h2>
+<p>Similar to the previous step, we start by creating a function (<strong><em>addDonation</em></strong>) for adding a single donation in our <strong>routes/donations.js</strong> file</p>
+<pre><code class="lang-javascript">router.addDonation = (req, res) =&gt; {
+    //Add a new donation to our list
+    var id = Math.floor((Math.random() * 1000000) + 1); //Randomly generate an id
+    // parameters to store
+    // id (for id)
+    // req.body.paymenttype (for paymenttype)
+    // req.body.amount (for amount)
+    // 0 (for upvotes)
+    var currentSize = donations.length;
+
+    donations.push(/*add the relevant code here*/);
+
+    if((currentSize + 1) == donations.length)
+        res.json({ message: &#39;Donation Added!&#39;});
+    else
+        res.json({ message: &#39;Donation NOT Added!&#39;});
+}</code></pre>
+<p>Notice we only return a json message confirming (or Not) we&#39;ve added the donation.</p>
+<p>Next, inside our <strong>app.js</strong> we need to define the actual route which will trigger the above function so keeping in mind the route is <strong>/donations</strong> with a <strong>POST</strong> request, see can you make the necessary additions?</p>
+<hr>
+<h3>Testing Our &#39;Add&#39; Route</h3>
+<p>Now that we have a POST &#39;service&#39; in our RESTful APi, let&#39;s test it via our REST Client.</p>
+<p>First, confirm what is currently in the list</p>
+<p><img src="img/lab02s25.png" alt=""></p>
+<h3>The Request</h3>
+<p>We need to fill in the <strong>Request Body</strong> for our POST</p>
+<p><img src="img/lab02s26.png" alt=""></p>
+<p>POSTing donation data in JSON format</p>
+<pre><code class="lang-json">{&quot;id&quot;:0,&quot;paymenttype&quot;:&quot;Direct&quot;,&quot;amount&quot;:500,&quot;upvotes&quot;:0}</code></pre>
+<h3>The Response</h3>
+<p><img src="img/lab02s27.png" alt=""></p>
+<p>GET all donations again to confirm</p>
+<p><img src="img/lab02s28.png" alt=""></p>
+<hr>
+<h2>Creating Our &#39;Upvote&#39; Route - &#39;incrementVotes&#39;</h2>
+<p>Here&#39;s what we need to implement the &#39;Upvote&#39; route</p>
+<p><strong>routes/donations.js</strong></p>
+<pre><code class="lang-javascript">router.incrementUpvotes = (req, res) =&gt; {
+    // Find the relevant donation based on params id passed in
+    // Add 1 to upvotes property of the selected donation based on its id
+    var donation = getByValue(donations,req.params.id);
+    donation.upvotes += 1;
+}</code></pre>
+<p>And again, in your <strong>app.js</strong> you need to add the correct &#39;route&#39; to trigger the function, so, assuming we use <strong>/vote</strong>, have a go at writing the correct call.</p>
+<h3>Testing Our &#39;Upvote&#39; Route</h3>
+<p>First, retrieve a single donation (1000001 here) to confirm what is the current upvotes value</p>
+<p><img src="img/lab02s29.png" alt=""></p>
+<p>Now that we have a PUT &#39;service&#39; in our RESTful APi, let&#39;s test it via our REST Client.</p>
+<h3>The Request</h3>
+<p>UPDATEing donation votes with id &#39;1000001&#39;</p>
+<pre><code class="lang-js">/donations/100001/votes</code></pre>
+<p><img src="img/lab02s30.png" alt=""></p>
+<h3>The Response (from another GET)</h3>
+<p><img src="img/lab02s31.png" alt=""></p>
+<p>as an exercise, have a go at returning the following on a successful &#39;upvote&#39;</p>
+<p><img src="img/lab02s32.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Step 5 - Adding our &#39;Routes&#39;, Part 3 (&#39;deleteDonation&#39;)</h1>
+<h2>Creating Our &#39;Delete&#39; Route - &#39;deleteDonation&#39;</h2>
+<p>Again, we start with the function in our <strong>routes/donations.js</strong> file</p>
+<pre><code class="lang-javascript">router.deleteDonation = (req, res) =&gt; {
+    //Delete the selected donation based on its id
+
+    // First, find the relevant donation to delete
+    // Next, find it&#39;s position in the list of donations
+
+    // Then use donations.splice(index, 1) to remove it from the list
+
+    // Return a message to reflect success or failure of delete operation
+}</code></pre>
+<p>and update our <strong>app.js</strong> accordingly</p>
+<pre><code class="lang-javascript">app.delete(ROUTE, FUNCTION);</code></pre>
+<h3>Testing Our &#39;Delete&#39; Route</h3>
+<p>Now that we have a DELETE &#39;service&#39; in our RESTful APi, let&#39;s test it via our REST Client.</p>
+<h3>The Request</h3>
+<p>DELETEing donation with id &#39;1000001&#39;</p>
+<pre><code class="lang-js">/donations/1000001</code></pre>
+<p><img src="img/lab02s33.png" alt=""></p>
+<p><img src="img/lab02s34.png" alt=""></p>
+<h3>The Response</h3>
+<p><img src="img/lab02s35.png" alt=""></p>
+<p>A quick GET all to confirm the deletion</p>
+<p><img src="img/lab02s36.png" alt=""></p>
+<hr>
+<p>As a final exercise, have a go at returning the total number of upvotes for all the donations.</p>
+<p>To get you started you can use this function to essentially &#39;sum up&#39; all the votes for all the donations in the list</p>
+<pre><code class="lang-js">function getTotalVotes(array) {
+    let totalVotes = 0;
+    array.forEach(function(obj) { totalVotes += obj.upvotes; });
+    return totalVotes;
+}</code></pre>
+<p>and assume our route will be</p>
+<pre><code class="lang-js">/donations/votes</code></pre>
+<p>which returns, for example</p>
+<pre><code class="lang-js">{
+  totalvotes : 8
+}</code></pre>
+<h1>All Done!</h1>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solution">
+            <h1>Solution - Lab 2</h1>
+<p>You can find the solution to this lab <strong><a href="archives/donationweb-2.0.zip">here</a></strong></p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Vue JS - Routing, Directives & Event Handling  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-Vue-03">
+          Lab-Vue-03
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+        <a class="item" data-tab="Solution">
+          Solution
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-Vue-03">
+            <h1>Lab Vue 03 - DonationVue-3.0 (Vue Client App)</h1>
+<p>This lab involves adding more functionality to our Vue Web App - <strong>DonationVue-3.0</strong> with the ability to Update, Delete and Upvote Donations.</p>
+<p>You can have a look at this, the final version of the app in action on the YouTube Channel <a href="https://youtu.be/TKM3mxiUCeA">here</a> or visit the live site here <a href="https://donationweb-ssd.firebaseapp.com">donationweb-ssd.firebaseapp.com</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Objectives</h1>
+<p>In this Lab, you will be required to build the final version of our Vue Client Web App, called <strong>DonationVue-3.0</strong>.  We will build on the previous lab, so you can either use your own version of <strong>DonationVue-2.0</strong> or download the starter code <strong><a href="archives/donationvue-2.0.zip">here</a></strong>. In this version we will be updating/adding more <strong>components</strong> to introduce more functionality into our Web App.  </p>
+<p>On completion of this lab you&#39;ll be able to</p>
+<ul>
+<li>make further http api calls on our Node Server using <a href="https://github.com/axios/axios">axios</a></li>
+<li>edit and delete donations on the server</li>
+<li>upvote a single donation on the server</li>
+<li>be able to use <strong>callbacks</strong> &amp; <strong>promises</strong></li>
+<li>be able to <strong>reuse custom components</strong> and <strong>sweetAlerts</strong> to inform the user</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 2 - Setup</h1>
+<p>First thing you should do is download the starter code (or the solution to the previous lab, or copy your own) <strong><a href="archives/donationvue-2.0.zip">here</a></strong> and then extract it to your single parent folder for all your web app projects you created for the previous labs - don&#39;t forget to run</p>
+<pre><code>npm install</code></pre>
+<p>to install all the necessary dependencies.</p>
+<p>It&#39;s not vital, but you should probably rename the directory and project for your final version of DonationVue if you want to keep different versions of your app like we did in the previous lab.</p>
+<p>Before beginning any refactoring it&#39;s probably worth running the App too, just to confirm it launches correctly.</p>
+<p>The rest of the lab involves adding functionality to allow the user to</p>
+<ul>
+<li><strong>Upvote</strong> and</li>
+<li><strong>Delete</strong> &amp; <strong>Edit</strong> a Donation</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 3 - &#39;Upvote &amp; Delete a Donation&#39;</h1>
+<p>At this stage we can add and list all our donations, so this step will involve allowing the user to upvote and delete a single donation, as well as sorting the donations in the table.</p>
+<p>The first feature we&#39;ll implement is our <strong>&#39;Upvote&#39;</strong>. We&#39;ll do this by</p>
+<ol>
+<li>Refactoring the view to give a nice &#39;thumbs Up&#39; icon option to the user</li>
+<li>Adding another &#39;axios&#39; call to our api to &#39;upvote&#39; on the Server</li>
+<li>Refactoring the Donations component to respond to a &#39;Thumbs Up&#39;</li>
+<li>Making the &#39;Upvotes&#39; table column <strong>sortable</strong> to sort on the upvotes value</li>
+</ol>
+<h2>Upvoting a Donation</h2>
+<p>Inside &#39;donationservice.js&#39; add the following (Note the parameter &amp; quotes ` )</p>
+<pre><code class="lang-js">upvoteDonation (id) {
+   return Api().put(`/donations/${id}/vote`)
+ }</code></pre>
+<p>In your &#39;Donations&#39; component (Donations.vue) add the following <strong>slot</strong> to the table (inside the template)</p>
+<pre><code class="lang-html">&lt;a slot=&quot;upvote&quot; slot-scope=&quot;props&quot; class=&quot;fa fa-thumbs-up fa-2x&quot; @click=&quot;upvote(props.row._id)&quot;&gt;&lt;/a&gt;</code></pre>
+<p>so you table should now look like this</p>
+<pre><code class="lang-html">&lt;v-client-table :columns=&quot;columns&quot; :data=&quot;donations&quot; :options=&quot;options&quot;&gt;
+  &lt;a slot=&quot;upvote&quot; slot-scope=&quot;props&quot; class=&quot;fa fa-thumbs-up fa-2x&quot; @click=&quot;upvote(props.row._id)&quot;&gt;&lt;/a&gt;
+&lt;/v-client-table&gt;</code></pre>
+<p>this inside your &#39;data()&#39; add</p>
+<pre><code class="lang-js">props: [&#39;_id&#39;]</code></pre>
+<p>add a new column</p>
+<pre><code class="lang-js">&#39;upvote&#39;</code></pre>
+<p>and finally this inside your &#39;methods:&#39;</p>
+<pre><code class="lang-js">// Fetches Donations when the component is created.
+upvote: function (id) {
+      DonationService.upvoteDonation(id)
+        .then(response =&gt; {
+
+          console.log(response)
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }</code></pre>
+<p>You should now have something like this</p>
+<p><img src="img/labvue0301.png" alt=""></p>
+<p>and after &#39;upvoting&#39; the first row here, this</p>
+<p><img src="img/labvue0302.png" alt=""></p>
+<p>Test your app for functionality and see if you can work out how to &#39;automatically&#39; update the table after the user &#39;upvotes&#39;.</p>
+<p>Notice also that we automatically get to filter on our new column &#39;Upvote&#39;. This was great with the other columns but is not very useful here - we&#39;ll revisit this again later....</p>
+<p>we can also make this column <strong>sortable</strong> by simply adding the following to our &#39;options&#39; inside our &#39;data()&#39;</p>
+<pre><code class="lang-js">sortable: [&#39;upvotes&#39;]</code></pre>
+<p>and if you add this to your &#39;App.vue&#39; styles</p>
+<pre><code class="lang-html">.VueTables__sortable {
+  cursor: pointer;
+}</code></pre>
+<p>you&#39;ll get a visual clue as to the column name being &#39;clickable&#39; so confirm that works before moving on.</p>
+<h2>Deleting a Donation</h2>
+<p>This involves similar steps to upvoting insofar as we need to</p>
+<ol>
+<li>Refactoring the view to give a nice &#39;Delete&#39; icon option to the user</li>
+<li>Adding another &#39;axios&#39; call to our api to &#39;delete&#39; on the Server</li>
+<li>Refactoring the Donations component to respond to a &#39;Delete&#39; (and possibly confirm with the user of their choice?)</li>
+</ol>
+<p>so here&#39;s what you need to initially have a go at that</p>
+<p>1.</p>
+<pre><code class="lang-html"> &lt;a slot=&quot;remove&quot; slot-scope=&quot;props&quot; class=&quot;fa fa-trash-o fa-2x&quot; @click=&quot;deleteDonation(props.row._id)&quot;&gt;&lt;/a&gt;</code></pre>
+<p>2.</p>
+<pre><code class="lang-js">deleteDonation (id) {
+   return Api().delete(`/donations/${id}`)
+ }</code></pre>
+<p>3.</p>
+<p>Column heading</p>
+<pre><code class="lang-js">&#39;remove&#39;</code></pre>
+<p>methods:</p>
+<pre><code class="lang-js">deleteDonation: function (id) {
+       DonationService.deleteDonation(id)
+         .then(response =&gt; {
+           this.loadDonations()
+         })
+         .catch(error =&gt; {
+           this.errors.push(error)
+           console.log(error)
+         })
+ }</code></pre>
+<p>Your Web App should now look like this</p>
+<p><img src="img/labvue0303.png" alt=""></p>
+<p>so test to confirm your delete works.</p>
+<p>Now, we should probably have some kind of safeguard against the user accidentally deleting a donation by mistake and that&#39;s where our <strong>sweetAlerts</strong> come in.</p>
+<p>First, install the correct dependency at the terminal window (as at the time of writing WebStorm doesn&#39;t have it)</p>
+<pre><code>npm install vue-sweetalert2 --save</code></pre>
+<p>&#39;import&#39; <strong>VueSweetalert2</strong> and &#39;use&#39; as necessary and replace your existing &#39;deleteDonation&#39; with this one</p>
+<pre><code class="lang-js">deleteDonation: function (id) {
+     this.$swal({
+       title: &#39;Are you totaly sure?&#39;,
+       text: &#39;You can\&#39;t Undo this action&#39;,
+       type: &#39;warning&#39;,
+       showCancelButton: true,
+       confirmButtonText: &#39;OK Delete it&#39;,
+       cancelButtonText: &#39;Cancel&#39;,
+       showCloseButton: true,
+       showLoaderOnConfirm: true
+     }).then((result) =&gt; {
+       console.log(&#39;SWAL Result : &#39; + result)
+       if (result.value === true) {
+         DonationService.deleteDonation(id)
+           .then(response =&gt; {
+             // JSON responses are automatically parsed.
+             this.message = response.data
+             console.log(this.message)
+             this.loadDonations()
+             // Vue.nextTick(() =&gt; this.$refs.vuetable.refresh())
+             this.$swal(&#39;Deleted&#39;, &#39;You successfully deleted this Donation &#39; + JSON.stringify(response.data, null, 5), &#39;success&#39;)
+           })
+           .catch(error =&gt; {
+             this.$swal(&#39;ERROR&#39;, &#39;Something went wrong trying to Delete &#39; + error, &#39;error&#39;)
+             this.errors.push(error)
+             console.log(error)
+           })
+       } else {
+         this.$swal(&#39;Cancelled&#39;, &#39;Your Donation still Counts!&#39;, &#39;info&#39;)
+       }
+     })
+   }</code></pre>
+<p>and see what happens when you try to delete/cancel deleting a donation - pretty sweet eh? (pun intended!!)</p>
+<p>Note : You may have noticed we were previously using <strong>VueSweetalert</strong> in our Donate Component and now we&#39;re using <strong>VueSweetalert2</strong>. It&#39;s not recommended to mix different versions of dependencies so instead of importing in separate components, we can place common dependencies in our <strong>main.js</strong> so go ahead and refactor that now.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Step 4 - &#39;Updating a Donation&#39; - Part 1</h1>
+<p>This step introduces one of the defining concepts of Vue - <strong>Component Reusability</strong></p>
+<p>Both our &#39;Donate&#39; and &#39;Update&#39; Views are virtually identical so are ideal candidates for a reusable component.</p>
+<p>We&#39;ll implement this by</p>
+<ol>
+<li>Adding more &#39;axios&#39; calls to our api to &#39;get&#39; and &#39;update&#39; on the Server</li>
+<li>Refactoring the &#39;Donations&#39; component to give a nice &#39;Edit&#39; icon option to the user</li>
+<li>Creating a new &#39;DonationForm&#39; to act as our reusable component in &#39;Donate&#39; and &#39;Update&#39;</li>
+<li>Refactoring the &#39;Donate&#39; component to use the &#39;DonationForm&#39;</li>
+<li>Creating a new &#39;Update&#39; component for editing a single Donations</li>
+<li>Refactoring the &#39;Donations&#39; component to respond to an &#39;Edit&#39;</li>
+</ol>
+<p>Yes, quite a lot to do here!</p>
+<p>To begin, inside &#39;donationservice.js&#39; add the following (Note the parameter &amp; quotes ` )</p>
+<pre><code class="lang-js">fetchDonation (id) {
+    return Api().get(`/donations/${id}`)
+  },
+putDonation (id, donation) {
+    console.log(&#39;REQUESTING &#39; + donation._id + &#39; &#39; +
+        JSON.stringify(donation, null, 5))
+      return Api().put(`/donations/${id}`, donation,
+        { headers: {&#39;Content-type&#39;: &#39;application/json&#39;} })
+    }</code></pre>
+<p>In your &#39;Donations.vue&#39; add this <strong>slot</strong> for editing</p>
+<pre><code class="lang-js">&lt;a slot=&quot;edit&quot; slot-scope=&quot;props&quot; class=&quot;fa fa-edit fa-2x&quot; @click=&quot;editDonation(props.row._id)&quot;&gt;&lt;/a&gt;</code></pre>
+<p>and the extra column needed</p>
+<pre><code>&#39;edit&#39;</code></pre>
+<p>Confirm your app renders like below before moving on</p>
+<p><img src="img/labvue0304.png" alt=""></p>
+<p>Next, <strong>copy</strong> your &#39;Donate&#39; component and save as &#39;DonationForm&#39; - this will act as our reusable component for Donating and Editing.</p>
+<p>There&#39;s a few changes we need to make to &#39;DonationForm&#39; to make it reusable so first, because we need a different title for the add/Update button, add the following to your &#39;exports&#39;</p>
+<pre><code class="lang-js">props: [&#39;donationBtnTitle&#39;]</code></pre>
+<p>and then reference it for the button title inside the Form. It&#39;s probably a good idea to change the name of this component from &#39;Donate&#39; to say, &#39;FormData&#39;.</p>
+<p>Next, we need to send or <strong>emit</strong> a message to the parent component AND pass the donation object, using this component, to tell it when the button has been clicked, so replace</p>
+<pre><code class="lang-js">this.submitDonation(this.donation)</code></pre>
+<p>with</p>
+<pre><code class="lang-js">this.$emit(&#39;donation-is-created-updated&#39;, this.donation)</code></pre>
+<p>and then remove the &#39;submitDonation&#39; function altogether.</p>
+<p>Now we can replace the complete Form in our &#39;Donate&#39; component and pass in the relevant button title to the component, so for simplicity, replace your &#39;Donate&#39; component with this one</p>
+<pre><code class="lang-js">&lt;template&gt;
+  &lt;div id=&quot;app1&quot; class=&quot;hero&quot;&gt;
+    &lt;h3 class=&quot;vue-title&quot;&gt;&lt;i class=&quot;fa fa-money&quot; style=&quot;padding: 3px&quot;&gt;&lt;/i&gt;{{messagetitle}}&lt;/h3&gt;
+    &lt;div class=&quot;container mt-3 mt-sm-5&quot;&gt;
+      &lt;div class=&quot;row justify-content-center&quot;&gt;
+        &lt;div class=&quot;col-md-6&quot;&gt;
+          &lt;donation-form :donation=&quot;donation&quot; donationBtnTitle=&quot;Make Donation&quot; @donation-is-created-updated=&quot;submitDonation&quot;&gt;&lt;/donation-form&gt;
+        &lt;/div&gt;&lt;!-- /col --&gt;
+      &lt;/div&gt;&lt;!-- /row --&gt;
+    &lt;/div&gt;&lt;!-- /container --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import DonationService from &#39;@/services/DonationService&#39;
+import DonationForm from &#39;@/components/DonationForm&#39;
+
+export default {
+  data () {
+    return {
+      donation: {paymenttype: &#39;Direct&#39;, amount: 0.0, message: &#39;&#39;},
+      messagetitle: &#39; Make Donation &#39;
+    }
+  },
+  components: {
+    &#39;donation-form&#39;: DonationForm
+  },
+  methods: {
+    submitDonation: function (donation) {
+      DonationService.postDonation(donation)
+        .then(response =&gt; {
+          console.log(response)
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+  #app1 {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .vue-title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 45pt;
+    margin-bottom: 10px;
+  }
+&lt;/style&gt;</code></pre>
+<p>Pay particular attention to the &#39;template&#39; and &#39;export&#39; sections, especially the</p>
+<pre><code class="lang-js">:donation=&quot;donation&quot;</code></pre>
+<p>as you&#39;ll be doing this yourself for the edit feature.</p>
+<p>If you run into rendering issues with your &#39;Donate&#39; component use this &#39;DonationForm&#39; instead</p>
+<pre><code class="lang-js">&lt;template&gt;
+  &lt;form @submit.prevent=&quot;submit&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;form-label&quot;&gt;Select Payment Type&lt;/label&gt;
+      &lt;select id=&quot;paymenttype&quot; name=&quot;paymenttype&quot; class=&quot;form-control&quot; type=&quot;text&quot; v-model=&quot;paymenttype&quot;&gt;
+        &lt;option value=&quot;null&quot; selected disabled hidden&gt;Choose Payment Type&lt;/option&gt;
+        &lt;option value=&quot;Direct&quot;&gt;Direct&lt;/option&gt;
+        &lt;option value=&quot;PayPal&quot;&gt;PayPal&lt;/option&gt;
+        &lt;option value=&quot;Visa&quot;&gt;Visa&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot; :class=&quot;{ &#39;form-group--error&#39;: $v.amount.$error }&quot;&gt;
+      &lt;label class=&quot;form-control-label&quot; name=&quot;amount&quot;&gt;Amount (Enter a number between 1 and 1000)&lt;/label&gt;
+      &lt;input class=&quot;form__input&quot; type=&quot;decimal&quot; v-model.trim=&quot;amount&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;error&quot; v-if=&quot;!$v.amount.between&quot;&gt;Amount must be between 1 and 1000&lt;/div&gt;
+    &lt;div class=&quot;form-group&quot; :class=&quot;{ &#39;form-group--error&#39;: $v.message.$error }&quot;&gt;
+      &lt;label class=&quot;form__label&quot;&gt;Personal Message&lt;/label&gt;
+      &lt;input class=&quot;form__input&quot; placeholder=&quot;enter some message here&quot; v-model.trim=&quot;$v.message.$model&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;error&quot; v-if=&quot;!$v.message.required&quot;&gt;Message is Required&lt;/div&gt;
+    &lt;div class=&quot;error&quot; v-if=&quot;!$v.message.minLength&quot;&gt;Message must have at least {{$v.message.$params.minLength.min}} letters.&lt;/div&gt;
+    &lt;p&gt;
+      &lt;button class=&quot;btn btn-primary btn1&quot; type=&quot;submit&quot; :disabled=&quot;submitStatus === &#39;PENDING&#39;&quot;&gt;{{ donationBtnTitle }}&lt;/button&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;#/donations&quot; class=&quot;btn btn-primary btn1&quot; role=&quot;button&quot;&gt;Manage Donations&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p class=&quot;typo__p&quot; v-if=&quot;submitStatus === &#39;OK&#39;&quot;&gt;Thanks for your Donation!&lt;/p&gt;
+    &lt;p class=&quot;typo__p&quot; v-if=&quot;submitStatus === &#39;ERROR&#39;&quot;&gt;Please Fill in the Form Correctly.&lt;/p&gt;
+    &lt;p class=&quot;typo__p&quot; v-if=&quot;submitStatus === &#39;PENDING&#39;&quot;&gt;Donating...&lt;/p&gt;
+  &lt;/form&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import Vue from &#39;vue&#39;
+import VueForm from &#39;vueform&#39;
+import Vuelidate from &#39;vuelidate&#39;
+import { required, minLength, between } from &#39;vuelidate/lib/validators&#39;
+
+Vue.use(VueForm, {
+  inputClasses: {
+    valid: &#39;form-control-success&#39;,
+    invalid: &#39;form-control-danger&#39;
+  }
+})
+
+Vue.use(Vuelidate)
+
+export default {
+  name: &#39;FormData&#39;,
+  props: [&#39;donationBtnTitle&#39;, &#39;donation&#39;],
+  data () {
+    return {
+      messagetitle: &#39; Donate &#39;,
+      message: this.donation.message,
+      paymenttype: this.donation.paymenttype,
+      amount: this.donation.amount,
+      upvotes: 0,
+      submitStatus: null
+    }
+  },
+  validations: {
+    message: {
+      required,
+      minLength: minLength(5)
+    },
+    amount: {
+      required,
+      between: between(1, 1000)
+    }
+  },
+  methods: {
+    submit () {
+      console.log(&#39;submit!&#39;)
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = &#39;ERROR&#39;
+      } else {
+        // do your submit logic here
+        this.submitStatus = &#39;PENDING&#39;
+        setTimeout(() =&gt; {
+          this.submitStatus = &#39;OK&#39;
+          var donation = {
+            paymenttype: this.paymenttype,
+            amount: this.amount,
+            upvotes: this.upvotes,
+            message: this.message
+          }
+          this.donation = donation
+          console.log(&#39;Submitting in DonationForm : &#39; + JSON.stringify(this.donation, null, 5))
+          this.$emit(&#39;donation-is-created-updated&#39;, this.donation)
+        }, 500)
+      }
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+  #app1 {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .required-field &gt; label::after {
+    content: &#39;*&#39;;
+    color: red;
+    margin-left: 0.25rem;
+  }
+  .donate-form .form-control-label.text-left{
+    text-align: left;
+  }
+
+  label {
+    display: inline-block;
+    width: 540px;
+    text-align: left;
+    font-size: x-large;
+  }
+  .typo__p {
+    width: 540px;
+    font-size: x-large;
+  }
+  .btn1 {
+    width: 300px;
+    font-size: x-large;
+  }
+  p {
+    margin-top: 20px;
+  }
+
+  input {
+    border: 1px solid silver;
+    border-radius: 4px;
+    background: white;
+    padding: 5px 10px;
+    width: 540px;
+  }
+
+  .dirty {
+    border-color: #5A5;
+    background: #EFE;
+  }
+
+  .dirty:focus {
+    outline-color: #8E8;
+  }
+
+  .error {
+    border-color: red;
+    background: #157ffb;
+    color: whitesmoke;
+  }
+
+  .error:focus {
+    outline-color: #ffa519;
+  }
+&lt;/style&gt;</code></pre>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Step 4 - &#39;Updating a Donation&#39; - Part 2</h1>
+<p>Now that we&#39;ve refactored our &#39;Donate&#39; and have a reusable Form, this step involves using our reusable &#39;DonationForm&#39; to implement the edit feature.</p>
+<p>Before we start though we&#39;ll complete our &#39;Donations&#39; component and pass the id of the donation to edit, to the component that will use it when the user clicks the edit icon, so add this to your &#39;methods&#39;</p>
+<pre><code class="lang-js">editDonation: function (id) {
+      this.$router.params = id
+      this.$router.push(&#39;edit&#39;)
+    }</code></pre>
+<p>Now, <strong>copy</strong> your &#39;Donate&#39; component and save as &#39;Edit&#39; - this will act as our starting point for Editing.</p>
+<p>First, add a new &#39;route&#39; for our &#39;Edit&#39; component</p>
+<pre><code class="lang-js">{
+  path: &#39;/edit&#39;,
+  name: &#39;Edit&#39;,
+  component: Edit,
+  props: true
+}</code></pre>
+<p>NOTE the &#39;props&#39; property.</p>
+<p>Next, change the relevant button titles and messages to</p>
+<pre><code>&#39;Update Donation&#39;</code></pre>
+<p>and the method to trigger to</p>
+<pre><code>updateDonation</code></pre>
+<p>Add a boolean</p>
+<pre><code class="lang-js">childDataLoaded: false</code></pre>
+<p>to your &#39;data()&#39; to manage the callback delay before loading and then add the following function</p>
+<pre><code class="lang-js">getDonation: function () {
+      DonationService.fetchDonation(this.$router.params)
+        .then(response =&gt; {
+          this.temp = response.data
+          this.donation = this.temp[0]
+          this.childDataLoaded = true
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }</code></pre>
+<p>this needs to be called at creation time, so ensure that is the case and then add this function</p>
+<pre><code class="lang-js">updateDonation: function (donation) {
+      DonationService.putDonation(this.$router.params, donation)
+        .then(response =&gt; {
+          console.log(response)
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }</code></pre>
+<p>so have a go at completing the edit feature when you need to</p>
+<ol>
+<li>Find the particular donation selected for editing when the component loads up or is &#39;created&#39;</li>
+<li>Update that donation with the new values chosen by the user.</li>
+</ol>
+<p>To get you started remember you should only load the &#39;donation-form&#39; component <strong>AFTER</strong> the data has been retrieved from the server so using a <strong>v-if</strong> directive and referring to the notes could be useful here.</p>
+<p>The final step in this lab is to &#39;tidy up&#39; the Donations list regarding what we want to filter on, and give the UI a small makeover :)</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Step 5 - &#39;A New Look&#39;</h1>
+<p>As a final step, we&#39;ll give our Vue Web App a bit of a &#39;face lift&#39; :) and sort out the issue with filtering on all table columns.</p>
+<p>First, open up your &#39;App.vue&#39; and replace the following in the &#39;app/styles&#39; section</p>
+<pre><code class="lang-js">#app {
+  font-family: &#39;Avenir&#39;, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  padding-top: 20px;
+  background: url(&quot;./assets/homerbgyellow.png&quot;) repeat center top;
+}
+.VueTables__sortable {
+  cursor: pointer;
+}</code></pre>
+<p>Next, open up your &#39;Donations.vue&#39; and add the following to the &#39;options:&#39;</p>
+<pre><code class="lang-js">perPage: 10,
+filterable: [&#39;paymenttype&#39;, &#39;amount&#39;, &#39;upvotes&#39;]</code></pre>
+<p>This will ensure the user can only &#39;filter&#39; on the listed columns. Also we can set the number of rows per page here, the default is 10 anyway, but now we can change it to whatever we like.</p>
+<p>As an exercise, create a new <strong>VFooter</strong> component that displays a simple message to the user which can be used as a &#39;footer&#39; message on all the different pages</p>
+<p>Now you should be seeing something like this</p>
+<p><img src="img/labvuemain.png" alt=""></p>
+<p>There&#39;s a nice feature using expandable child rows in our table not implemented here in the labs but is featured in the live version - that&#39;s something you can investigate yourself :)</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solution">
+            <h1>Solution - Lab Vue 03</h1>
+<p>You can find the solution to this lab <strong><a href="archives/donationvue-3.0.zip">here</a></strong>.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

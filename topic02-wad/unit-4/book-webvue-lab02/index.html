@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Vue JS - Routing, Directives & Event Handling  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-Vue-02">
+          Lab-Vue-02
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="Solution">
+          Solution
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-Vue-02">
+            <h1>Lab Vue 02 - DonationVue-2.0 (Vue Client App)</h1>
+<p>This lab involves adding some actual functionality to our Vue Web App - <strong>DonationVue-2.0</strong> with the ability to List and add Donations.</p>
+<p>In this lab we&#39;ll add the ability to make a Donation and list all the Donations via our Restful API (our Node Server).</p>
+<p>You can have a look at this version of the app in action on the YouTube Channel <a href="https://youtu.be/SIUhcOy__OQ">here</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Objectives</h1>
+<p>In this Lab, you will be required to build the next version of our Vue Client Web App, called <strong>DonationVue-2.0</strong>.  We will build on the previous lab, so you can either use your own version of <strong>DonationVue-1.0</strong> or download the starter code <strong><a href="archives/donationvue-1.0.zip">here</a></strong>. In this version we will be updating some of our <strong>components</strong> to introduce functionality into our Web App.  </p>
+<p>On completion of this lab you&#39;ll be able to</p>
+<ul>
+<li>make http api calls on our Node Server using <a href="https://github.com/axios/axios">axios</a></li>
+<li>list all donations on the server</li>
+<li>add a single donation to the server</li>
+<li>be able to use <strong>callbacks</strong> &amp; <strong>promises</strong></li>
+<li>be able to use <strong>VueTables</strong> and <strong>validate</strong> &amp; <strong>filter</strong> data</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 2 - Setup</h1>
+<p>First thing you should do is download the starter code (or the solution to the previous lab) <strong><a href="archives/donationvue-1.0.zip">here</a></strong> and then extract it to your single parent folder for all your web app projects you created for the previous labs - don&#39;t forget to run</p>
+<pre><code>npm install</code></pre>
+<p>to install all the necessary dependencies.</p>
+<p>It&#39;s not vital, but you should probably rename the directory and project for your final version of DonationVue if you want to keep different versions of your app.</p>
+<p><img src="img/labvue0201.png" alt=""></p>
+<p><img src="img/labvue0202.png" alt=""></p>
+<p>Before beginning any refactoring it&#39;s probably worth running the App, just to confirm it launches correctly.</p>
+<p>The rest of the lab involves adding functionality to allow the user to</p>
+<ul>
+<li><strong>Donate</strong></li>
+<li><strong>View All Donations</strong> and</li>
+<li><strong>Filter/Search the Donations list</strong></li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 3 - &#39;View All Donations&#39;</h1>
+<p>With any application that will be listing some data it&#39;s always a good idea to get the &#39;Display/list/View All&#39; option implemented first, if for no other reason, to confirm that what you have in the &#39;app&#39; can be viewed in the &#39;app&#39; and that you can confirm your &#39;add&#39; works pretty much instantly.</p>
+<p>So the first feature we&#39;ll implement is our <strong>&#39;View All Donations&#39;</strong> and list our &#39;donations&#39; we have stored on the Server (in the mongodb database). We&#39;ll do this in 2 stages</p>
+<ol>
+<li>Retrieve the data (in JSON format) from the server and just display them as is, confirming our &#39;GET&#39; request is working</li>
+<li>Display this data in a <strong>VueTable</strong> with eventually, Edit/Delete/Upvote &amp; Filter/Search options</li>
+</ol>
+<p>First of all we need to install a few dependencies to make this process a little easier, namely</p>
+<ul>
+<li>axios (for our http requests) and</li>
+<li>vue-tables-2 (for displaying our donations in a very nice table)</li>
+</ul>
+<p>so go ahead and install those via WebStorm (or the CL if you prefer).</p>
+<p>Now, to try and improve our overall design we&#39;re going to wrap our axios calls in a separate javascript file so create a new folder called &#39;services&#39; in the &#39;src&#39; directory. Then create 2 javascript files &#39;api.js&#39; and &#39;donationservice.js&#39; like so</p>
+<p><img src="img/labvue0203.png" alt=""></p>
+<p>Inside &#39;api.js&#39; place the following</p>
+<pre><code class="lang-js">import axios from &#39;axios&#39;
+
+export default() =&gt; {
+  return axios.create({
+    baseURL: &#39;http://localhost:3000/&#39;
+  })
+}</code></pre>
+<p>and inside &#39;donationservice.js&#39; place</p>
+<pre><code class="lang-js">import Api from &#39;@/services/api&#39;
+
+export default {
+  fetchDonations () {
+    return Api().get(&#39;/donations&#39;)
+  }
+}</code></pre>
+<h2>NOTE : YOU NEED TO HAVE YOUR DONATION NODE SERVER RUNNING ON HTTP://LOCALHOST:3000 <I><U>BEFORE</U></I> YOU TEST YOUR CLIENT</h2>
+<h2><strong><em>&#39;Requesting&#39;</em></strong> our List of Donations</h2>
+<p>In your &#39;Donations&#39; component (Donations.vue) add the following to the script tag section</p>
+<p>this import immediately after the script tag</p>
+<pre><code class="lang-js">import DonationService from &#39;@/services/DonationService&#39;</code></pre>
+<p>this inside your &#39;data()&#39; function</p>
+<pre><code class="lang-js">donations: [],
+errors: []</code></pre>
+<p>and finally this after your &#39;data()&#39; function</p>
+<pre><code class="lang-js">// Fetches Donations when the component is created.
+  created () {
+    this.loadDonations()
+  },
+  methods: {
+    loadDonations: function () {
+      DonationService.fetchDonations()
+        .then(response =&gt; {
+          // JSON responses are automatically parsed.
+          this.donations = response.data
+          console.log(this.donations)
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }
+  }</code></pre>
+<p>so, for reference, your updated script content looks like this</p>
+<pre><code class="lang-js">import DonationService from &#39;@/services/DonationService&#39;
+export default {
+  name: &#39;Donations&#39;,
+  data () {
+    return {
+      messagetitle: &#39; Donations List &#39;,
+      donations: [],
+      errors: []
+    }
+  },
+  // Fetches Donations when the component is created.
+  created () {
+    this.loadDonations()
+  },
+  methods: {
+    loadDonations: function () {
+      DonationService.fetchDonations()
+        .then(response =&gt; {
+          // JSON responses are automatically parsed.
+          this.donations = response.data
+          console.log(this.donations)
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }
+  }
+}</code></pre>
+<p>Be sure you understand what&#39;s going on here as you&#39;ll be adding to these files later on.</p>
+<p>We want to initially display the records (just so we know it works) on our page in basic JSON format so have a go at something along the lines of the following</p>
+<p><img src="img/labvue0204.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th><code>NOTE ON POSSIBLE *CORS* ERROR</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>If you get a <code>CORS</code> error then you&#39;ll need to <code>1. revisit your Node Server</code> <code>2.</code> install and <em>require</em> the <code>cors</code> module and then <code>3. app.use(cors())</code> in your <code>app.js</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ALSO - If you have been &#39;stringifying&#39; your JSON on your server i.e. calling JSON.stringfy(), this returns a string NOT a JSON ARRAY (which your Vue Client Expects) so you&#39;ll need to remove this and just send back the raw data in your result to avoid a wrong type expected error when trying to display your data in your Vue table</strong></p>
+<h2>Displaying our &#39;List of Donations&#39;</h2>
+<p>Once we have requested our JSON donation data the next step is to display them properly in a table, specifically a <strong>v-client-table</strong> so first we need to add another dependency <strong>vue-tables-2</strong> (<strong>NOT</strong> vue-tables) - do that now.</p>
+<p>In your &#39;Donations.vue&#39;, add the following</p>
+<pre><code class="lang-js">import Vue from &#39;vue&#39;
+import VueTables from &#39;vue-tables-2&#39;
+
+Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})</code></pre>
+<p>to give us access to the <strong>VueTables</strong> reusable component.</p>
+<p>Next, we need to specify some properties and &#39;options&#39; of our table inside our &#39;data()&#39; function, so add the following</p>
+<pre><code class="lang-js">columns: [&#39;_id&#39;, &#39;paymenttype&#39;, &#39;amount&#39;, &#39;upvotes&#39;],
+options: {
+        headings: {
+          _id: &#39;ID&#39;,
+          paymenttype: &#39;Payment Type&#39;,
+          amount: &#39;Amount&#39;,
+          upvotes: &#39;Upvotes&#39;
+        }
+      }</code></pre>
+<p>for reference</p>
+<pre><code class="lang-js">data () {
+   return {
+     messagetitle: &#39; Donations List &#39;,
+     donations: [],
+     errors: [],
+     columns: [&#39;_id&#39;, &#39;paymenttype&#39;, &#39;amount&#39;, &#39;upvotes&#39;],
+     options: {
+       headings: {
+         _id: &#39;ID&#39;,
+         paymenttype: &#39;Payment Type&#39;,
+         amount: &#39;Amount&#39;,
+         upvotes: &#39;Upvotes&#39;
+       }
+     }
+   }
+ }</code></pre>
+<p>Add the following style attribute</p>
+<pre><code>#app1 {
+  width: 60%;
+  margin: 0 auto;
+}</code></pre>
+<p>and finally, our table, inside the template (so replace the basic JSON)</p>
+<pre><code class="lang-html">&lt;div id=&quot;app1&quot;&gt;
+   &lt;v-client-table :columns=&quot;columns&quot; :data=&quot;donations&quot; :options=&quot;options&quot;&gt;
+   &lt;/v-client-table&gt;
+ &lt;/div&gt;</code></pre>
+<p><strong>Note the properties of our table and how they correspond to the data() properties</strong></p>
+<p>If all goes to plan, when you reload your app you should get</p>
+<p><img src="img/labvue0205.png" alt=""></p>
+<p>Pretty Cool if I do say so myself !!</p>
+<p><strong>You can even filter on each individual column - by default !!</strong></p>
+<p>We&#39;ll revisit this table again to add in extra features and customisation, but for the moment, let&#39;s move on to adding a donation - the next step.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Step 4 - &#39;Donate&#39;</h1>
+<p>So now that we can display a list of the donations currently on the server, the second feature we&#39;ll implement is our <strong>&#39;Donate&#39;</strong> option where the user can choose an <em>amount</em>, a <em>payment type</em> and optionally, a <em>message</em>. Before we start, we need to install a few more dependencies, namely,</p>
+<ul>
+<li>vueform (for our Donate form)</li>
+<li>vuelidate (for validation)</li>
+<li>vue-sweetalert (for some rich UI alerts)</li>
+</ul>
+<p>so do that now.</p>
+<p>Next, edit your <strong>Donate</strong> component and &#39;use&#39; the following (you may need to import the relevant dependencies)</p>
+<pre><code class="lang-js">Vue.use(VueForm, {
+  inputClasses: {
+    valid: &#39;form-control-success&#39;,
+    invalid: &#39;form-control-danger&#39;
+  }
+})
+
+Vue.use(Vuelidate)
+Vue.use(VueSweetalert)</code></pre>
+<p>There&#39;s a bit more work involved to get this feature implemented, so the first thing we&#39;ll do is write the function to allow us to <em>add</em> a donation to our list (stored on the server).</p>
+<h2><strong><em>&#39;Posting&#39;</em></strong> a single Donation</h2>
+<p>Open up your <strong>donationservice.js</strong> and add the following</p>
+<pre><code class="lang-js">postDonation (donation) {
+  return Api().post(&#39;/donations&#39;, donation,
+    { headers: {&#39;Content-type&#39;: &#39;application/json&#39;} })
+}</code></pre>
+<p>Then in your <strong>Donate</strong> component add the following to the &#39;data()&#39; function</p>
+<pre><code class="lang-js">message: &#39;&#39;,
+paymenttype: &#39;Direct&#39;,
+amount: 0,
+upvotes: 0,
+donation: {}</code></pre>
+<p>and this function, to the <code>methods:</code> section of your Component</p>
+<pre><code class="lang-js">submitDonation: function (donation) {
+      DonationService.postDonation(donation)
+        .then(response =&gt; {
+          // JSON responses are automatically parsed.
+          console.log(response)
+        })
+        .catch(error =&gt; {
+          this.errors.push(error)
+          console.log(error)
+        })
+    }</code></pre>
+<p>and fix any import errors.</p>
+<p>Now we need to add the relevant scripting for validating our form data, so begin by adding the following import</p>
+<pre><code class="lang-js">import { required, minLength, between } from &#39;vuelidate/lib/validators&#39;</code></pre>
+<p>add the following to your &#39;data()&#39;</p>
+<pre><code class="lang-js">submitStatus: null</code></pre>
+<p>add the following <code>validations:</code> to your export</p>
+<pre><code class="lang-js">validations: {
+    message: {
+      required,
+      minLength: minLength(5)
+    },
+    amount: {
+      required,
+      between: between(1, 1000)
+    }
+  },</code></pre>
+<p>and add the following to your <code>methods:</code> section inside your <code>Donate</code> Component</p>
+<pre><code class="lang-js">submit () {
+   console.log(&#39;submit!&#39;)
+   this.$v.$touch()
+   if (this.$v.$invalid) {
+     this.submitStatus = &#39;ERROR&#39;
+   } else {
+     // do your submit logic here
+     this.submitStatus = &#39;PENDING&#39;
+     setTimeout(() =&gt; {
+       this.submitStatus = &#39;OK&#39;
+       var donation = {
+         paymenttype: this.paymenttype,
+         amount: this.amount,
+         upvotes: this.upvotes,
+         message: this.message
+       }
+       this.donation = donation
+       this.submitDonation(this.donation)
+     }, 500)
+   }
+ }</code></pre>
+<p>Finally, we need to add the actual form to accept the data from the user. So inside your &#39;template&#39; add the following</p>
+<pre><code class="lang-html">&lt;form @submit.prevent=&quot;submit&quot;&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+     &lt;label class=&quot;form-label&quot;&gt;Select Payment Type&lt;/label&gt;
+     &lt;select id=&quot;paymenttype&quot; name=&quot;paymenttype&quot; class=&quot;form-control&quot; type=&quot;text&quot; v-model=&quot;paymenttype&quot;&gt;
+       &lt;option value=&quot;null&quot; selected disabled hidden&gt;Choose Payment Type&lt;/option&gt;
+       &lt;option value=&quot;Direct&quot;&gt;Direct&lt;/option&gt;
+       &lt;option value=&quot;PayPal&quot;&gt;PayPal&lt;/option&gt;
+       &lt;option value=&quot;Visa&quot;&gt;Visa&lt;/option&gt;
+     &lt;/select&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;form-group&quot; :class=&quot;{ &#39;form-group--error&#39;: $v.amount.$error }&quot;&gt;
+     &lt;label class=&quot;form-control-label&quot; name=&quot;amount&quot;&gt;Amount (Enter a number between 1 and 1000)&lt;/label&gt;
+     &lt;input class=&quot;form__input&quot; type=&quot;number&quot; v-model.trim=&quot;amount&quot;/&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;error&quot; v-if=&quot;!$v.amount.between&quot;&gt;Amount must be between 1 and 1000&lt;/div&gt;
+   &lt;div class=&quot;form-group&quot; :class=&quot;{ &#39;form-group--error&#39;: $v.message.$error }&quot;&gt;
+     &lt;label class=&quot;form__label&quot;&gt;Personal Message&lt;/label&gt;
+     &lt;input class=&quot;form__input&quot; v-model.trim=&quot;$v.message.$model&quot;/&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;error&quot; v-if=&quot;!$v.message.required&quot;&gt;Message is Required&lt;/div&gt;
+   &lt;div class=&quot;error&quot; v-if=&quot;!$v.message.minLength&quot;&gt;Message must have at least {{$v.message.$params.minLength.min}} letters.&lt;/div&gt;
+   &lt;p&gt;
+     &lt;button class=&quot;btn btn-primary btn1&quot; type=&quot;submit&quot; :disabled=&quot;submitStatus === &#39;PENDING&#39;&quot;&gt;Make Donation&lt;/button&gt;
+   &lt;/p&gt;
+   &lt;p class=&quot;typo__p&quot; v-if=&quot;submitStatus === &#39;OK&#39;&quot;&gt;Thanks for your Donation!&lt;/p&gt;
+   &lt;p class=&quot;typo__p&quot; v-if=&quot;submitStatus === &#39;ERROR&#39;&quot;&gt;Please Fill in the Form Correctly.&lt;/p&gt;
+   &lt;p class=&quot;typo__p&quot; v-if=&quot;submitStatus === &#39;PENDING&#39;&quot;&gt;Donating...&lt;/p&gt;
+ &lt;/form&gt;</code></pre>
+<p>and add this to your styles</p>
+<pre><code class="lang-js">  #app1 {
+    width: 95%;
+    margin: 0 auto;
+  }
+.required-field &gt; label::after {
+    content: &#39;*&#39;;
+    color: red;
+    margin-left: 0.25rem;
+  }
+  .donate-form .form-control-label.text-left{
+    text-align: left;
+  }
+
+  label {
+    display: inline-block;
+    width: 540px;
+    text-align: left;
+    font-size: x-large;
+  }
+  .typo__p {
+    width: 540px;
+    font-size: x-large;
+  }
+  .btn1 {
+    width: 300px;
+    font-size: x-large;
+  }
+  p {
+    margin-top: 20px;
+  }
+
+  input {
+    border: 1px solid silver;
+    border-radius: 4px;
+    background: white;
+    padding: 5px 10px;
+    width: 540px;
+  }
+
+  .dirty {
+    border-color: #5A5;
+    background: #EFE;
+  }
+
+  .dirty:focus {
+    outline-color: #8E8;
+  }
+
+  .error {
+    border-color: red;
+    background: #157ffb;
+    color: whitesmoke;
+  }
+
+  .error:focus {
+    outline-color: #ffa519;
+  }</code></pre>
+<p>We&#39;ll go through exactly what&#39;s going on here during the lab (if we haven&#39;t covered it in the lectures already)</p>
+<p>And we&#39;ll eventually revisit this component, and refactor it to be reusable for our Edit feature.</p>
+<p>But if all goes as planned, your &#39;Donate&#39; screen will look like this</p>
+<p><img src="img/labvue0206.png" alt=""></p>
+<p>and you should be able to make donations to your server.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solution">
+            <h1>Solution - Lab Vue 02</h1>
+<p>You can find the solution to this lab <strong><a href="archives/donationvue-2.0.zip">here</a></strong>.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Node, MongoDB & Mongoose   </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Deploy-to-heroku">
+          Deploy-to-heroku
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Deploy-to-heroku">
+            <h1>Deploying our Server to Heroku</h1>
+<p>As a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your Node Server to Heroku.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Step 01 - Requirements</h1>
+<p>For reference, I mainly used this <a href="https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku">link</a> and this <a href="https://devcenter.heroku.com/articles/deploying-nodejs#deploy-your-application-to-heroku">link</a> to put these steps together.</p>
+<hr>
+<p>Before you can deploy to heroku using this lab you need to have the following downloaded &amp; installed and/or setup</p>
+<ol>
+<li>Heroku Account (so visit <a href="http://heroku.com">Heroku.com</a> and create one)</li>
+<li><a href="http://nodejs.org">Node and npm</a></li>
+<li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up">Heroku Toolbelt</a></li>
+<li><a href="http://git-scm.com">Git</a></li>
+<li><a href="http://bitbucket.org">Bitbucket</a> or <a href="http://github.com">GitHub</a> Account (I&#39;ll be using Bitbucket here)</li>
+<li><a href="https://www.sourcetreeapp.com">SourceTree</a> (make sure you have this one installed before progressing with the actual lab, otherwise, just follow the steps from the links above)</li>
+</ol>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 02 - Using BitBucket &amp; SourceTree</h1>
+<p>Once you have your BitBucket account set up, go ahead and create a new repository</p>
+<p><img src="img/heroku01.png" alt=""></p>
+<p>In this lab I&#39;ll be naming it <b>donationwebtest</b> but once you call it something relevant you&#39;ll be fine.</p>
+<p><img src="img/heroku02.png" alt=""></p>
+<p>I also set the language to <b>Javascript</b> (as below) but this is purely for completeness</p>
+<p><img src="img/heroku2a.png" alt=""></p>
+<p>You now have a number of different options to populate your repository (repo) but we&#39;re going to use <b>SourceTree</b> for this, so go ahead and choose &#39;Clone in SourceTree&#39;</p>
+<p><img src="img/heroku03.png" alt=""></p>
+<p>Choose a local folder to &#39;sync&#39; with your remote repo and click &#39;Clone&#39;. This will now create a local copy of your remote repo you&#39;ve just created on BitBucket - but it&#39;s empty, so let&#39;s add some files to our repo.</p>
+<p><img src="img/heroku04.png" alt=""></p>
+<p><img src="img/heroku05.png" alt=""></p>
+<p>Navigate to you local folder in Windows Explorer or Finder and copy in some files - in this Example I&#39;m copying in the solution to our donationweb-5.0 web app, but be careful <b>NOT</b> to copy the hidden .git folder</p>
+<p><img src="img/heroku06.png" alt=""></p>
+<p><img src="img/heroku07.png" alt=""></p>
+<p>If you now switch back to SourceTree, you&#39;ll see a list of all the files in our local folder that have yet to be <i>pushed</i> and/or <i>committed</i> to our remote repo.</p>
+<p><img src="img/heroku08.png" alt=""></p>
+<p>&#39;Tick&#39; the unstaged file checkbox and you&#39;ll get something like this</p>
+<p><img src="img/heroku09.png" alt=""></p>
+<p>Click the &#39;Commit&#39; button and enter a brief description</p>
+<p><img src="img/heroku10.png" alt=""></p>
+<p>and all our files will be synced with our remote BitBucket repo.</p>
+<p><img src="img/heroku11.png" alt=""></p>
+<p><img src="img/heroku12.png" alt=""></p>
+<p>Now, visit your previously created repo online, go to the &#39;source&#39; option, and you should see the same list of files - Congratulations! You&#39;ve just committed your first set of files to a remote repository (which you can share, clone, etc.)</p>
+<p><img src="img/heroku13.png" alt=""></p>
+<p><img src="img/heroku14.png" alt=""></p>
+<p>Just as an exercise, go ahead an make a change to some file(s) in your local repo and see can you &#39;commit&#39; those changes to your remote repo, like I&#39;ve done here.</p>
+<p><img src="img/heroku15.png" alt=""></p>
+<p><img src="img/heroku16.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 03 - The Heroku Toolbelt</h1>
+<p>At this stage you can now create repositories and manage you projects and files through git and Bitbucket + SourceTree. To actually deploy a Node Web App to Heroku you need the <b>Heroku Toolbelt</b>.</p>
+<p>The Heroku toolbelt gives you access to the Heroku Command Line Utility, as well as git, (tools we’ll use later).</p>
+<p>After you&#39;ve installed the Toolbelt, you have access to the heroku commands. Go into your command line and type:</p>
+<pre><code>$ heroku</code></pre>
+<p><img src="img/heroku17.png" alt=""></p>
+<p>You get a full list of the available Heroku commands, but we&#39;l only be using a few of them.</p>
+<p>The next step is to login to your (already created!) Heroku account, so at the command line, type</p>
+<pre><code>$ heroku login</code></pre>
+<p>and enter your Heroku credentials</p>
+<p><img src="img/heroku18.png" alt=""></p>
+<p>Now type</p>
+<pre><code>$ heroku create donationwebtest</code></pre>
+<p>where &#39;donationwebtest&#39; is the name of the web app you wish to create.</p>
+<p><b>Note : the web app name needs to be unique, so if a node web app already exists with the name you&#39;ve chosen, you&#39;ll get an error</b></p>
+<p><img src="img/heroku19.png" alt=""></p>
+<p>You can always leave the name empty</p>
+<pre><code>$ heroku create</code></pre>
+<p>and Heroku will generate a random web app name for you?</p>
+<p>Visit your Heroku Account online to confirm your app was created successfully.</p>
+<p><img src="img/heroku20.png" alt=""></p>
+<p>Now, to deploy your node web app to Heroku type the following (once you&#39;ve already created a git repo)</p>
+<pre><code>$ git push heroku master</code></pre>
+<p>and you should get a long list of deployment messages (as below)</p>
+<p><img src="img/heroku21.png" alt=""></p>
+<p>You should then be able to visit <a href="http://myherokuappname.herokuapp.com">http://myherokuappname.herokuapp.com</a> and see your node web app in all its glory.</p>
+<p>For our example though, things aren&#39;t looking so good? Have you any idea why?</p>
+<p><img src="img/heroku22.png" alt=""></p>
+<p>(We&#39;ll fix this in the final step!)</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Step 04 - Heroku &amp; MongoLab</h1>
+<p><strong>NOTE : MONGOLAB IS NOW MLAB SO THIS STEP IS A LITTLE OUT OF DATE. WHAT I ACTUALLY DID WITH OUR NODE SERVER WAS SET UP THE MLAB CONNECTION BEFOREHAND SO WHEN IT WAS DEPLOYED IT ALREADY HAD THE PROPER CONNECTION. IF YOU&#39;VE FOLLOWED THE LABS YOU WILL HAVE THIS SETUP YOURSELF ALREADY SO THIS STEP ISN&#39;T REQUIRED.</strong></p>
+<p>As previously mentioned, the web app didn&#39;t load correctly. It failed to launch due to no backend database present - this final step will take you through the process of setting up a mongodb database via one of Heroku&#39;s many addons <b>MongoLab</b></p>
+<p>First, visit your Heroku dashboard for your web app and select the &#39; Resources&#39; tab</p>
+<p><img src="img/heroku23.png" alt=""></p>
+<p>In the &#39;Add-ons&#39; Search box, enter mongo (or mongolab to be complete)</p>
+<p><img src="img/heroku24.png" alt=""></p>
+<p>and select the &#39;mongoLab&#39; Add-on. &#39;Provision&#39; the Free Sandbox Plan, and the MongoLab Add-on will be added to your web app.</p>
+<p><img src="img/heroku25.png" alt=""></p>
+<p>Now, select the new Add-on and you&#39;ll be taken to the associated MongoLab Account</p>
+<p><img src="img/heroku26.png" alt=""></p>
+<p>and a randomly generated database (as below)</p>
+<p><img src="img/heroku27.png" alt=""></p>
+<p>The connection string is very important, as this is how we will connect to our mongo database in our web app.</p>
+<p><img src="img/heroku27a.png" alt=""></p>
+<p>There is also a default user set up, but I find it easier to add a new user (as it&#39;s easier to remember the username and password that we&#39;ll need later to connect to our database in our javascript code).</p>
+<p><img src="img/heroku28.png" alt=""></p>
+<p>So go ahead and create/add a new user.</p>
+<p><img src="img/heroku29.png" alt=""></p>
+<p>You can delete the default user if you wish, but it&#39;s not a requirement for all this to work. Here, we now have only 1 user - daveyd (me!).</p>
+<p><img src="img/heroku30.png" alt=""></p>
+<p>The penultimate step is to set up the connection in your node web app, so go to your routes file &#39;donations.js&#39; (in our example) and configure your web app to connect to the mongodb database and not your local db, as is currently the case.</p>
+<p>Something like this</p>
+<pre><code>var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } },
+                user: &#39;YOURMONGODBUSERNAME&#39;, pass: &#39;YOURMONGODBPASSWORD&#39; };  
+
+//ENTER YOUR MONGODB CONNECTION STRING HERE IN PLACE OF MY ONE
+var mongodbUri = &#39;mongodb://ds063XXX.mongolab.com:63892/heroku_XXXXXXXX&#39;;
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+
+//mongoose.connect(&#39;mongodb://localhost:27017/donationsdb&#39;);
+mongoose.connect(mongooseUri,options);</code></pre>
+<p>Now ,the last thing you need to do, is &#39;commit&#39; your changes and deploy your app to Heroku again.  You can do this either through the command line or SourceTree, but I&#39;ve noticed that the odd time SourceTree doesn&#39;t work correctly, so if you don&#39;t see all the deployment messages through SourceTree, just complete the deployment from the command line.</p>
+<p><img src="img/heroku31.png" alt=""></p>
+<p><img src="img/heroku32.png" alt=""></p>
+<p><img src="img/heroku33.png" alt=""></p>
+<p><img src="img/heroku34.png" alt=""></p>
+<p>As a final confirmation that everything is working correctly, just add a donation and check that it&#39;s in your mongodb database.</p>
+<p><img src="img/heroku35.png" alt=""></p>
+<p><img src="img/heroku36.png" alt=""></p>
+<h2>THE END!</h2>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

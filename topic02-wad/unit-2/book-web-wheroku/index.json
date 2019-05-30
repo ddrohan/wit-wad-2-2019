@@ -1,0 +1,53 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Deploy-to-heroku",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>As a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your Node Server to Heroku.</p>",
+  "folder" : "book-web-wheroku",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "# Deploying our Server to Heroku",
+    "shortTitle": "Deploy-to-heroku",
+    "contentMd" : "# Deploying our Server to Heroku\n\nAs a related exercise (and a useful one!) you should complete this lab in the context of your own Web App, and deploy your Node Server to Heroku.\n"
+    },
+  
+    {
+    "title": "# Step 01 - Requirements",
+    "shortTitle": "01",
+    "contentMd" : "# Step 01 - Requirements\n\nFor reference, I mainly used this [link](https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku) and this [link](https://devcenter.heroku.com/articles/deploying-nodejs#deploy-your-application-to-heroku) to put these steps together.\n\n---\n\nBefore you can deploy to heroku using this lab you need to have the following downloaded & installed and/or setup\n\n1. Heroku Account (so visit [Heroku.com](http://heroku.com) and create one)\n2. [Node and npm](http://nodejs.org)\n3. [Heroku Toolbelt](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)\n4. [Git](http://git-scm.com)\n5. [Bitbucket](http://bitbucket.org) or [GitHub](http://github.com) Account (I'll be using Bitbucket here)\n6. [SourceTree](https://www.sourcetreeapp.com) (make sure you have this one installed before progressing with the actual lab, otherwise, just follow the steps from the links above)\n"
+    },
+  
+    {
+    "title": "# Step 02 - Using BitBucket & SourceTree",
+    "shortTitle": "02",
+    "contentMd" : "# Step 02 - Using BitBucket & SourceTree\n\nOnce you have your BitBucket account set up, go ahead and create a new repository\n\n![](img/heroku01.png)\n\nIn this lab I'll be naming it <b>donationwebtest</b> but once you call it something relevant you'll be fine.\n\n![](img/heroku02.png)\n\nI also set the language to <b>Javascript</b> (as below) but this is purely for completeness\n\n![](img/heroku2a.png)\n\nYou now have a number of different options to populate your repository (repo) but we're going to use <b>SourceTree</b> for this, so go ahead and choose 'Clone in SourceTree'\n\n![](img/heroku03.png)\n\nChoose a local folder to 'sync' with your remote repo and click 'Clone'. This will now create a local copy of your remote repo you've just created on BitBucket - but it's empty, so let's add some files to our repo.\n\n![](img/heroku04.png)\n\n![](img/heroku05.png)\n\nNavigate to you local folder in Windows Explorer or Finder and copy in some files - in this Example I'm copying in the solution to our donationweb-5.0 web app, but be careful <b>NOT</b> to copy the hidden .git folder\n\n![](img/heroku06.png)\n\n![](img/heroku07.png)\n\nIf you now switch back to SourceTree, you'll see a list of all the files in our local folder that have yet to be <i>pushed</i> and/or <i>committed</i> to our remote repo.\n\n![](img/heroku08.png)\n\n'Tick' the unstaged file checkbox and you'll get something like this\n\n![](img/heroku09.png)\n\nClick the 'Commit' button and enter a brief description\n\n![](img/heroku10.png)\n\nand all our files will be synced with our remote BitBucket repo.\n\n![](img/heroku11.png)\n\n![](img/heroku12.png)\n\nNow, visit your previously created repo online, go to the 'source' option, and you should see the same list of files - Congratulations! You've just committed your first set of files to a remote repository (which you can share, clone, etc.)\n\n![](img/heroku13.png)\n\n![](img/heroku14.png)\n\nJust as an exercise, go ahead an make a change to some file(s) in your local repo and see can you 'commit' those changes to your remote repo, like I've done here.\n\n![](img/heroku15.png)\n\n![](img/heroku16.png)\n"
+    },
+  
+    {
+    "title": "# Step 03 - The Heroku Toolbelt",
+    "shortTitle": "03",
+    "contentMd" : "# Step 03 - The Heroku Toolbelt\n\nAt this stage you can now create repositories and manage you projects and files through git and Bitbucket + SourceTree. To actually deploy a Node Web App to Heroku you need the <b>Heroku Toolbelt</b>.\n\nThe Heroku toolbelt gives you access to the Heroku Command Line Utility, as well as git, (tools we’ll use later).\n\nAfter you've installed the Toolbelt, you have access to the heroku commands. Go into your command line and type:\n\n~~~\n$ heroku\n~~~\n![](img/heroku17.png)\n\nYou get a full list of the available Heroku commands, but we'l only be using a few of them.\n\nThe next step is to login to your (already created!) Heroku account, so at the command line, type\n~~~\n$ heroku login\n~~~\n\nand enter your Heroku credentials\n\n![](img/heroku18.png)\n\nNow type\n~~~\n$ heroku create donationwebtest\n~~~\n\nwhere 'donationwebtest' is the name of the web app you wish to create.\n\n<b>Note : the web app name needs to be unique, so if a node web app already exists with the name you've chosen, you'll get an error</b>\n\n![](img/heroku19.png)\n\nYou can always leave the name empty\n\n~~~\n$ heroku create\n~~~\n\nand Heroku will generate a random web app name for you?\n\nVisit your Heroku Account online to confirm your app was created successfully.\n\n![](img/heroku20.png)\n\nNow, to deploy your node web app to Heroku type the following (once you've already created a git repo)\n~~~\n$ git push heroku master\n~~~\n\nand you should get a long list of deployment messages (as below)\n\n![](img/heroku21.png)\n\nYou should then be able to visit http://myherokuappname.herokuapp.com and see your node web app in all its glory.\n\nFor our example though, things aren't looking so good? Have you any idea why?\n\n![](img/heroku22.png)\n\n(We'll fix this in the final step!)\n"
+    },
+  
+    {
+    "title": "# Step 04 - Heroku & MongoLab",
+    "shortTitle": "04",
+    "contentMd" : "# Step 04 - Heroku & MongoLab\n\n**NOTE : MONGOLAB IS NOW MLAB SO THIS STEP IS A LITTLE OUT OF DATE. WHAT I ACTUALLY DID WITH OUR NODE SERVER WAS SET UP THE MLAB CONNECTION BEFOREHAND SO WHEN IT WAS DEPLOYED IT ALREADY HAD THE PROPER CONNECTION. IF YOU'VE FOLLOWED THE LABS YOU WILL HAVE THIS SETUP YOURSELF ALREADY SO THIS STEP ISN'T REQUIRED.**\n\nAs previously mentioned, the web app didn't load correctly. It failed to launch due to no backend database present - this final step will take you through the process of setting up a mongodb database via one of Heroku's many addons <b>MongoLab</b>\n\nFirst, visit your Heroku dashboard for your web app and select the ' Resources' tab\n\n![](img/heroku23.png)\n\nIn the 'Add-ons' Search box, enter mongo (or mongolab to be complete)\n\n![](img/heroku24.png)\n\nand select the 'mongoLab' Add-on. 'Provision' the Free Sandbox Plan, and the MongoLab Add-on will be added to your web app.\n\n![](img/heroku25.png)\n\nNow, select the new Add-on and you'll be taken to the associated MongoLab Account\n\n![](img/heroku26.png)\n\nand a randomly generated database (as below)\n\n![](img/heroku27.png)\n\nThe connection string is very important, as this is how we will connect to our mongo database in our web app.\n\n![](img/heroku27a.png)\n\nThere is also a default user set up, but I find it easier to add a new user (as it's easier to remember the username and password that we'll need later to connect to our database in our javascript code).\n\n![](img/heroku28.png)\n\nSo go ahead and create/add a new user.\n\n![](img/heroku29.png)\n\nYou can delete the default user if you wish, but it's not a requirement for all this to work. Here, we now have only 1 user - daveyd (me!).\n\n![](img/heroku30.png)\n\nThe penultimate step is to set up the connection in your node web app, so go to your routes file 'donations.js' (in our example) and configure your web app to connect to the mongodb database and not your local db, as is currently the case.\n\nSomething like this\n\n~~~\nvar options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },\n                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } },\n                user: 'YOURMONGODBUSERNAME', pass: 'YOURMONGODBPASSWORD' };  \n\n//ENTER YOUR MONGODB CONNECTION STRING HERE IN PLACE OF MY ONE\nvar mongodbUri = 'mongodb://ds063XXX.mongolab.com:63892/heroku_XXXXXXXX';\nvar mongooseUri = uriUtil.formatMongoose(mongodbUri);\n\n\n//mongoose.connect('mongodb://localhost:27017/donationsdb');\nmongoose.connect(mongooseUri,options);\n~~~\n\nNow ,the last thing you need to do, is 'commit' your changes and deploy your app to Heroku again.  You can do this either through the command line or SourceTree, but I've noticed that the odd time SourceTree doesn't work correctly, so if you don't see all the deployment messages through SourceTree, just complete the deployment from the command line.\n\n![](img/heroku31.png)\n\n![](img/heroku32.png)\n\n![](img/heroku33.png)\n\n![](img/heroku34.png)\n\nAs a final confirmation that everything is working correctly, just add a donation and check that it's in your mongodb database.\n\n![](img/heroku35.png)\n\n![](img/heroku36.png)\n\n\n## THE END!\n"
+    }
+  
+  ]
+  }
+

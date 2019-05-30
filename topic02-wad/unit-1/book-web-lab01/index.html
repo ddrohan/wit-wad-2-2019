@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Node JS  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-01">
+          Lab-01
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-01">
+            <h1>Lab 1 - DonationWeb 1.0 (Express &amp; Node Web App using WebStorm)</h1>
+<p>In this lab we&#39;re going to build a very simple Node Web App using the <strong>WebStorm</strong> IDE. If you haven&#39;t done so already, get it set up by following the WebStorm IDE Setup. This web app won&#39;t have much functionality but it will take you through the process of building a Node Web app using WebStorm.</p>
+<p>Once completed and running, your Node Server Landing Page will be at <a href="http://localhost:3000">http://localhost:3000</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Objectives</h1>
+<p>In this Lab, you will be required to build a simple Node/Express Web App (using WebStorm), called <strong>DonationWeb-1.0</strong>.  We will use the WebStorm IDE to do most of the initial setup for us.</p>
+<p>On completion of this lab you&#39;ll be able to</p>
+<ul>
+<li>create a skeleton <strong>NodeJS</strong> app using <strong>Express</strong></li>
+<li>run this app as a <strong>NodeJS Server</strong></li>
+<li>&#39;customise&#39; the Node Server Landing (Home) Page</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 2 - Project Setup</h1>
+<p><img src="img/lab01s01.png" alt=""></p>
+<p>We&#39;re going to build our first Node/Express web app using <strong>WebStorm</strong>, so (assuming you already have it installed) launch your WebStorm IDE and create a new Node/Express Project as follows;</p>
+<p><img src="img/lab01s02.png" alt=""></p>
+<p>So select &#39;Create New Project&#39; and you should get something like this</p>
+<p><img src="img/lab01s02a.png" alt=""></p>
+<p>Select a &#39;Node.js Express App&#39;</p>
+<p><img src="img/lab01s02b.png" alt=""></p>
+<p>and browse to the location you want to store your project files. It&#39;s probably a good idea to store all your web apps in a single folder (<strong>donationweb</strong> for me here) and create a new folder for our specific web app <strong>donationweb-1.0</strong> (as below).</p>
+<p>Make sue you choose <strong>EJS</strong> as the templating option (more on this later)</p>
+<p>As you can see below, this will auto-generate a Node web app, creating all the necessary folders and files we need to get started. <em>EJS</em> specifies we want to use the <strong>Embedded JavaScript Templates</strong> (instead of the default which is Jade).</p>
+<p><img src="img/lab01s06.png" alt=""></p>
+<p><img src="img/lab01s06a.png" alt=""></p>
+<p>(And you can ignore the image files for the moment)</p>
+<p>Now, click on the &#39;play&#39; button to run/launch your Web App..</p>
+<p><img src="img/lab01s07.png" alt=""></p>
+<p>and you&#39;ll get this in your <em>Run</em> window</p>
+<p><img src="img/lab01s08.png" alt=""></p>
+<p>If everything goes to plan you should be able to visit <a href="http://localhost:3000"><a href="http://localhost:3000">http://localhost:3000</a></a> in your browser, and see the following</p>
+<p><img src="img/lab01s12.png" alt=""></p>
+<p>Now, if you&#39;d rather your browser launch automatically you can configure you &#39;Run&#39; options like so:</p>
+<p><strong>Run-&gt;Edit Configurations...</strong></p>
+<p><img src="img/lab01s09.png" alt=""></p>
+<p>and choose the Browser you prefer</p>
+<p><img src="img/lab01s10.png" alt=""></p>
+<p>Just be sure to &#39;tick&#39; the &#39;After Launch&#39; check box</p>
+<p><img src="img/lab01s11.png" alt=""></p>
+<p>Close the browser tab/window and run your app again, to confirm your new run configuration is correct.</p>
+<p>The next step will involve customising our home page (although customising is a bit of a stretch!)</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 3 - Customising our Home Page</h1>
+<p>Before we make a start launch your app again and confirm that it automatically launches your preferred browser as well</p>
+<p><img src="img/lab01s12.png" alt=""></p>
+<p>Now, navigate to you &#39;routes&#39; folder</p>
+<p><img src="img/lab01s13.png" alt=""></p>
+<p>Open up the <strong>index.js</strong> file, and replace the default <strong><em>title</em></strong> value with this one</p>
+<pre><code class="lang-javascript">&#39;DonationWeb App Lab 1&#39;</code></pre>
+<p><img src="img/lab01s13a.png" alt=""></p>
+<p>Launch your app again and your project should now look something like this</p>
+<p><img src="img/lab01s15.png" alt=""></p>
+<p>Now we&#39;ll add a small bit of styling, so open up your <strong>style.css</strong> and add the following</p>
+<pre><code class="lang-js">p  {
+  color: red;
+  font-family: courier;
+  font-size: 180%;
+}</code></pre>
+<p><img src="img/lab01s16.png" alt=""></p>
+<p>Run you app once again and...</p>
+<p><img src="img/lab01s17.png" alt=""></p>
+<p>For a bit of &#39;light entertainment&#39; :) head over to <a href="https://giphy.com/explore/homer-simpson">https://giphy.com/explore/homer-simpson</a>, pick an animated gif you like and try and customise your Home Page like so</p>
+<p><img src="img/lab01s18.png" alt=""></p>
+<p><strong>Well Done!! - You&#39;ve just created, customised and deployed your first Node Web App</strong>.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

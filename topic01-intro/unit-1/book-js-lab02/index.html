@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Introduction & Background  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="JS.Lab-02">
+          JS.Lab-02
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-dev-setup/index.html">Setup </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab01/index.html">JS.Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic01-intro/unit-1/book-js-lab02/index.html">JS.Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab01/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-1/book-web-lab02/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-lab03/index.html">Lab-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-2/book-web-wheroku/index.html">Deploy-to-heroku </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-3/book-webvue-lab01/index.html">Lab-Vue-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab02/index.html">Lab-Vue-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-4/book-webvue-lab03/index.html">Lab-Vue-03 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://ddrohan.github.io/wit-wad-2-2019//topic02-wad/unit-5/book-webvue-wfirebase/index.html">Deploy-to-Firebase </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="JS.Lab-02">
+            <h1>JavaScript Lab 2 - Functions &amp; Callbacks</h1>
+<p>In these labs we&#39;re going to build a very simple Console Version of our Node Web App (while we learn about Web Apps) using <strong>WebStorm</strong>.</p>
+<p>If you haven&#39;t done so already, download Atom <a href="https://atom.io">here</a> . This app won&#39;t have any web functionality at all but it will take you through a brief look at using javascript and callbacks in a Node Console App.</p>
+<p>Once completed and running via WebStorm, your App Menu will look something like this</p>
+<p><img src="img/jslab201complete.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Objectives</h1>
+<p>In this Lab, you will continue to build a simple Node Console App (using WebStorm), called <strong>DonationWeb.0.1</strong>.  We will use the WebStorm IDE just to get used to using the environment.</p>
+<p>On completion of this lab you&#39;ll be able to</p>
+<ul>
+<li>create a basic Node Console App with limited CRUD functionality</li>
+<li>work with some Node &#39;packages&#39; and use them in your app</li>
+<li>implement some simple JavaScript Callback functions</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Step 2 - Adding &amp; Finding a Donation</h1>
+<p>We&#39;re going to continue with our <strong>DonationWeb.0.1</strong> console app and in this step we&#39;ll look at adding a Donation to our existing list and allow our updated list to be searched for a particular donation. Remember though, this will only exist for the duration of the app running (but we&#39;ll introduce persistence later on in the module).</p>
+<p>First thing to do is open up your existing project (if you haven&#39;t done so already) and run it again, to ensure everything is working ok.</p>
+<p>Next, add the following &#39;helper function&#39; to your <strong>index.js</strong> to allow us to search for (or filter out) a single donation from our array of donations</p>
+<pre><code class="lang-JS">function getByValue(array, id) {
+          var result  = array.filter(function(obj){return obj.id == id;} );
+          return result ? result[0] : null; // or undefined
+        }</code></pre>
+<p>It takes the array to search, and the &#39;id&#39; of the donation to search for - you will use this later on.</p>
+<p>Now, add the following function stub to eventually allow the user to add a donation to the existing list of donations</p>
+<pre><code class="lang-JS">function addDonation() {
+    //Add a new donation to our list
+
+    //Randomly generate an id
+    let id = Math.floor((Math.random() * 10000000) + 1);
+
+    let currentSize = donations.length;
+    let donation = {};
+
+    // Create a new donation Object here,
+    // Set it&#39;s id to the randomly generated id above,
+    // Prompt the user for Payment Type &amp; Amount,
+    // Set the upvotes to a default value, and then
+    // add the donation object to the array of donations.
+
+    // You should also inform the user whether the &#39;add&#39;
+    // has been successful or not?
+}</code></pre>
+<p>Here&#39;s an idea of what you should be getting once you&#39;ve implemented this step correctly</p>
+<p><img src="img/jslab201.png" alt=""></p>
+<p>Now, once we&#39;ve added a Donation, it would be useful to be able to search our list so, using the <em>getByValue()</em> function above complete the following function</p>
+<pre><code class="lang-JS">function findDonation() {
+      // Prompt the user for the id to search for and
+      // display to the user if found
+      // Display a suitable message if not found
+      }</code></pre>
+<p>so the user sees something like this</p>
+<p><img src="img/jslab202.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Step 3 - Deleting a Donation</h1>
+<p>To delete a donation we&#39;ll make use of another &#39;helper&#39; method - remove()</p>
+<pre><code class="lang-JS">function remove(array, element) {
+      const index = array.indexOf(element);
+
+        if (index !== -1) {
+            array.splice(index, 1);
+          }
+      }</code></pre>
+<p>So using the method above, complete the following function</p>
+<pre><code class="lang-JS">function deleteDonation() {
+
+        // Prompt the user for the id to delete
+        // Find that donation and &#39;remove&#39; it from the list
+        // using the remove method supplied.
+
+        // Make sure to display the list before and after a
+        // successful delete or a suitable message otherwise
+            }</code></pre>
+<p>so that we have something like this - note we display the list of donations before AND after the deletion.</p>
+<p><img src="img/jslab203.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Step 4 - Solution Source Code</h1>
+<pre><code class="lang-JS">const chalk         = require(&#39;chalk&#39;);
+const readlineSync  = require(&#39;readline-sync&#39;);
+
+let donations = [
+   {id: 1000000, paymenttype: &#39;PayPal&#39;, amount: 1600, upvotes: 1},
+   {id: 1000001, paymenttype: &#39;Direct&#39;, amount: 1100, upvotes: 4},
+   {id: 1000002, paymenttype: &#39;Visa&#39;, amount: 100, upvotes: 2}
+];
+
+function getByValue(array, id) {
+   var result  = array.filter(function(obj){return obj.id == id;} );
+   return result ? result[0] : null; // or undefined
+}
+
+function remove(array, element) {
+   const index = array.indexOf(element);
+
+   if (index !== -1) {
+       array.splice(index, 1);
+   }
+}
+
+function addDonation() {
+   //Add a new donation to our list
+
+   let id = Math.floor((Math.random() * 10000000) + 1); //Randomly generate an id
+   let currentSize = donations.length;
+   let donation = {};
+
+   donation.id = id;
+   donation.upvotes = 1;
+
+   donation.paymenttype = readlineSync.question(&#39;Enter Payment Type =&gt;&gt; &#39;);
+   donation.amount = readlineSync.question(&#39;Enter Amount =&gt;&gt; &#39;);
+
+   donations.push(donation);
+
+   if((currentSize + 1) == donations.length)
+       console.log(&#39;Donation Added!&#39;);
+   else
+       console.log(&#39;Donation NOT Added!&#39;);
+}
+
+function continueYN() {
+   if (readlineSync.keyInYN(&#39;Do you want to Continue?&#39;))
+   // &#39;Y&#39; key was pressed.
+       displayMenu();
+   else
+   // Another key was pressed.
+       process.exit(0);
+}
+
+function findDonation() {
+
+   let id = readlineSync.question(&#39;Enter Donation ID =&gt;&gt; &#39;);
+
+   let donation = getByValue(donations,id);
+
+   if(donation != null)
+       console.log(donation);
+   else
+       console.log(&#39;Donation NOT Found!&#39;);
+}
+
+function deleteDonation() {
+
+   console.log(donations);
+   let id = readlineSync.question(&#39;Enter Donation ID to Remove =&gt;&gt; &#39;);
+
+   let donation = getByValue(donations,id);
+
+   if(donation != null) {
+       remove(donations,donation);
+       console.log(donations);
+   }
+   else
+       console.log(&#39;Donation NOT DELETED!&#39;);
+}
+
+function displayMenu() {
+
+   let choice;
+
+   let options = [&#39;Make A Donation&#39;, &#39;Display All Donations&#39;, &#39;Find A Donation&#39;, &#39;Delete A Donation&#39;];
+
+   console.log(&#39;\x1Bc&#39;); // Clear the Screen
+   console.log(chalk.bold(&#39;----- DONATION -----&#39;));
+   console.log(&#39;&#39;);
+   choice = readlineSync.keyInSelect(options, chalk.green.bold(&#39;Choose an Option?&#39;));
+
+   if(choice+1 == 1)
+       addDonation();
+   else if(choice+1 == 2)
+       console.log(donations);
+   else if(choice+1 == 3)
+       findDonation();
+   else if(choice+1 == 4)
+       deleteDonation();
+   else
+       return process.exit(0);
+
+   continueYN();
+}
+
+displayMenu();</code></pre>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
