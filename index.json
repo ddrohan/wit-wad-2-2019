@@ -25,7 +25,7 @@
   "title" : "Assignments ",
   "img" : "topic.png",
   "videoid" : "",
-  "objectives" : "<p>Specification for the course assignments.</p>",
+  "objectives" : "<p>Specification for the course assignments. There are two assignments to complete, 1. Build a Node Backend and 2. Develop a Vue Frontend, each with different weightings, reflecting the content covered during the module.</p>",
   "folder" : "topic00",
   "link" : "index.html",
   "los": [
