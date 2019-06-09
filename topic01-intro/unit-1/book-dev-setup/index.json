@@ -44,8 +44,14 @@
   
     {
     "title": "",
-    "shortTitle": "MongoDB",
+    "shortTitle": "MongoDB.MLabs",
     "contentMd" : "\n![](img/mongodbmlab.png)\n\nTo install mongodb go to the official site and follow the instructions for your particular environment [here](http://www.mongodb.com).\n\nWe won't be using a mongodb database until later on in the module, but it's worth having it installed and setup before we actually need it.\n\nYou might also want to set up an [mlabs account](http://www.mlab.com) if you plan on deploying your project - here's the general set of screens you'll go through during the setup.\n\n![](img/mlab01.png)\n![](img/mlab02.png)\n![](img/mlab03.png)\n![](img/mlab04.png)\n![](img/mlab05.png)\n![](img/mlab06.png)\n![](img/mlab07.png)\n![](img/mlab08.png)\n![](img/mlab09.png)\n"
+    },
+  
+    {
+    "title": "",
+    "shortTitle": "MongoDB.Atlas",
+    "contentMd" : "\n![](img/mongodbatlas.png)\n\nIf you need to set up an [MongoDB Atlas account](http://www.mongodb.com) if you plan on deploying your project - here's the general set of screens you'll go through during that setup.\n\n![](img/01.png)\n![](img/02.png)\n![](img/03.png)\n![](img/04.png)\n![](img/05.png)\n![](img/06.png)\n![](img/07.png)\n![](img/08.png)\n![](img/09.png)\n![](img/10.png)\n![](img/11.png)\n![](img/12.png)\n![](img/13.png)\n![](img/14.png)\n![](img/15.png)\n![](img/16.png)\n![](img/17.png)\n![](img/18.png)\n![](img/19.png)\n![](img/20.png)\n![](img/21.png)\n![](img/22.png)\n![](img/23.png)\n![](img/24.png)\n"
     },
   
     {

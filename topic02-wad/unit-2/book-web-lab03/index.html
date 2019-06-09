@@ -233,8 +233,8 @@ html, body {
         
           <div class="ui tab segment lab" data-tab="Lab-03">
             <h1>Lab 3 - Donation 3.0 (Mongo, Express &amp; Node App)</h1>
-<p>In this lab we will be introducing some proper persistence, through a <strong>MongoDB</strong> backend, initially running locally, and then eventually deploying to <a href="http://www.mlab.com">www.mlab.com</a> so that we can have remote mongo support.</p>
-<p>Here&#39;s a link to some of the commands you&#39;ll be using throughout the lab [QuickLinks] docs.mongodb.org/master/tutorial/getting-started-with-the-mongo-shell/ but most of what we do in this lab we&#39;ll have covered in the lectures.</p>
+<p>In this lab we will be introducing some proper persistence, through a <strong>MongoDB</strong> backend, initially running locally, and then eventually deploying to <a href="http://www.mlab.com">www.mlab.com</a> or if you need a new Atlas account <a href="http://www.mongodb.com">www.mongodb.com</a> so that we can have remote mongo support.</p>
+<p>Here&#39;s a link to some of the commands you&#39;ll be using throughout the lab [QuickLinks] (<a href="http://docs.mongodb.org/master/tutorial/getting-started-with-the-mongo-shell/">http://docs.mongodb.org/master/tutorial/getting-started-with-the-mongo-shell/</a>) but most of what we do in this lab we&#39;ll have covered in the lectures.</p>
 
           </div>
         
@@ -272,7 +272,7 @@ html, body {
 <pre><code>npm install mongoose</code></pre>
 <p>and</p>
 <pre><code>npm install mongodb</code></pre>
-<p>Confirm your node_modules now includes the following:</p>
+<p>Confirm your <strong>node_modules</strong> now includes the following:</p>
 <p><img src="img/lab03s05.png" alt=""></p>
 <p>The last step in our &#39;Setup&#39; is to kick off our localhost mongodb server and insert a few &#39;Donations&#39; so we can test our refactored &#39;findAll&#39; function (next step).</p>
 <p>Open up a terminal window and launch the mongodb server</p>
@@ -285,11 +285,13 @@ html, body {
 <p>In the client window,</p>
 <ul>
 <li>create/switch to the <strong>&#39;donationsdb&#39;</strong> database</li>
-<li>insert a few records (similar to the screenshots) and make sure you name your collection <strong>donationsdb</strong> and <strong>NOT</strong> donations.</li>
+<li>insert a few records (similar to the screenshots) and make sure you name your collection <strong>donations</strong> and <strong>NOT</strong> <strong>donationsdb</strong> as in the Screenshots, so the command you should be inserting with is (for example)</li>
 </ul>
+<pre><code>db.donations.insert(&quot;paymenttype&quot; : &quot;PayPal&quot;, &quot;amount&quot; : 1500, &quot;upvotes&quot; : 0 })</code></pre>
+<p><strong>So what we have here is a database called donationsdb and a collection within it called donations </strong></p>
 <p><img src="img/lab03s11.png" alt=""></p>
 <p>To confirm the records were inserted correctly execute a <strong>find()</strong></p>
-<pre><code>db.donationsdb.find()</code></pre>
+<pre><code>db.donations.find()</code></pre>
 <p><img src="img/lab03s12.png" alt=""></p>
 <p><img src="img/lab03s13.png" alt=""></p>
 <p>We now have a few records or &#39;documents&#39; we can access via our Node Web Server (next step).</p>
@@ -340,7 +342,7 @@ let DonationSchema = new mongoose.Schema({
     amount: Number,
     upvotes: {type: Number, default: 0}
     },
-    { collection: &#39;donationsdb&#39; });
+    { collection: &#39;donations&#39; });
 
 module.exports = mongoose.model(&#39;Donation&#39;, DonationSchema);</code></pre>
 <p>Here we&#39;ve defined a model called <strong><em>Donation</em></strong> with several attributes corresponding to the type of data we&#39;d like to store. We&#39;ve declared our upvotes field to be initialized to 0. We also explicitly name the collection within which we are storing our donations.</p>
@@ -521,25 +523,30 @@ module.exports = mongoose.model(&#39;Donation&#39;, DonationSchema);</code></pre
           </div>
         
           <div class="ui tab segment lab" data-tab="07">
-            <h1>Step 7 - mlab.com Support</h1>
-<p>If you haven&#39;t done so already, head over to <a href="http://www.mlab.com">www.mlab.com</a> and set up your database. You can follow a quick guide to my own setup here <a href="https://ddrohan.github.io/wit-wad-2-2018/topic01-intro/unit-1/book-dev-setup/index.html">mlab setup</a>.</p>
+            <h1>Step 7 - Remote Cloud Support</h1>
+<p>If you haven&#39;t done so already set up your mongodb remote database on either mlabs or mongodb. You can follow a quick guide to my own setup here <a href="https://ddrohan.github.io/wit-wad-2-2019/topic01-intro/unit-1/book-dev-setup/index.html">mlab setup</a> for both an mlab account and a mongodb atlas account.</p>
 <p>Now, create a new mongod connection in your <strong>routes/donations</strong> file like so</p>
+<p><strong>NOTE: The Database is named &#39;donationsdb&#39;, the mongoose Schema will allow us to find the relevant Collection</strong></p>
+<h2>mlab connection string</h2>
 <pre><code class="lang-javascript">var mongodbUri =&#39;mongodb://&lt;user&gt;:&lt;password&gt;@ds255260.mlab.com:55260/donationsdb&#39;;</code></pre>
+<h2>mongodb atlas connection string</h2>
+<pre><code class="lang-javascript">var mongodbUri = &#39;mongodb+srv://&lt;user&gt;:&lt;password&gt;@wit-donation-cluster-upbus.mongodb.net/donationsdb?retryWrites=true&amp;w=majority&#39;;</code></pre>
 <p>and connect using this connection instead of your localhost Connection</p>
 <pre><code class="lang-javascript">mongoose.connect(mongodbUri);</code></pre>
 <p><strong>NOTE - this is my own connection string, so you will need to grab your own connection from your mlab account and use the username/password you set up to access your database</strong></p>
 <p>You should run your app to confirm you can connect to your remote mongodb database before proceeding.</p>
 <p>Once you&#39;re connecting ok, you should then insert a few records and retrieve them, just to confirm everything is working ok and then verify this against your mlab account</p>
-<h3>Testing Our mlab Connection</h3>
+<h2>Testing Our Connection</h2>
 <p><img src="img/lab03s40.png" alt=""></p>
 <p><img src="img/lab03s41.png" alt=""></p>
 <p><img src="img/lab03s42.png" alt=""></p>
+<p><img src="img/16.png" alt=""></p>
 
           </div>
         
           <div class="ui tab segment lab" data-tab="Solution">
             <h1>Solution - Lab 3</h1>
-<p>You can find the solution to this lab <strong><a href="archives/donationweb-3.0.zip">here</a></strong>.</p>
+<p>You can find the mlab solution to this lab <strong><a href="archives/donationweb-3.0.zip">here</a></strong>.</p>
 
           </div>
         
